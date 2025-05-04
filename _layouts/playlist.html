@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+    {% include header.html %}
+    <div class="title-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h1 style="margin: 0;">{{ page.title }}</h1>
+      <a href="{{ page.download-link }}" class="button special" style="font-size: 0.75em;">
+          <span class="fa-layers fa-fw">
+              <i class="fas fa-download fa-lg"></i> <!-- YouTube icon -->
+              <span class="fa-layers-text">Download</span>
+          </span>
+      </a>
+  </div>
+
+    
+    {% if page.featured-image %}
+      <span class="image main">
+        <img src="{{ page.featured-image }}" alt="">
+      </span>
+    {% endif %}
+
+    {% if page.player-id %}
+    <iframe 
+      src="https://samply.app/embed/{{ page.player-id }}?color=4b4b4b"
+      width="100%"
+      height="400"
+      frameborder="0">
+    </iframe>
+    {% endif %}
+        
+    <section>
+      <div class="row">
+        {{ content }}
+      </div>
+    </section>
+    {% include footer.html %}
+
+
+</body>
+
+</html>

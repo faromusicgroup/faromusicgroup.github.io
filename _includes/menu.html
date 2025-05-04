@@ -1,0 +1,28 @@
+<nav id="menu">
+	<h2>Menu</h2>
+	<ul>
+
+		{% for page in site.pages %}
+		{% if page.path == "index.html" %}
+		<li><a href="{{ page.url | prepend: site.baseurl | remove: 'index.html' }}">{{ page.title }}</a></li>
+		{% endif %} {% endfor %}
+
+
+			{% for p in site.pages %}
+
+				{% if p.title %}
+				
+					{% if p.title != "MESPI" %}
+						<li><a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+					{% endif %}
+
+					{% if p.title == "MESPI" and page.url != "/" %}
+						<li><a href="{{ p.url | prepend: site.baseurl }}">HOME</a></li>
+					{% endif %}
+
+				{% endif %}
+				
+			{% endfor %}
+
+	</ul>
+</nav>

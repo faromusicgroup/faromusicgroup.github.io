@@ -1,0 +1,36 @@
+<!-- Wrapper -->
+<div id="wrapper">
+
+	<header id="header">
+		<div class="inner" style="display: flex; flex-direction: column; align-items: center;">
+			{% if page.url != "/" %}
+			<!-- Logo when it is not the base page-->
+			<a href="{{ site.baseurl }}/" class="logo">
+				<span class="symbol-others">
+					<img src="{{ site.baseurl }}/{{ site.logo-image-url }}_very_spaced.svg" alt=""/>
+				</span>
+				<!-- <span class="title">{{ site.title }}</span> -->
+			</a>
+			{% else %}
+			<!-- Logo when it is the base page -->
+			<a href="{{ site.baseurl }}/" class="logo">
+				<span class="symbol-main">
+					<img src="{{ site.baseurl }}/{{ site.logo-image-url }}_spaced.svg" alt="" />
+				</span>
+			</a>
+			{% endif %}
+			<!-- Nav -->
+			<nav>
+				<ul>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+
+		</div>
+	</header>
+
+	{% include menu.html %}
+
+	<!-- Main -->
+	<div id="main">
+		<div class="inner">

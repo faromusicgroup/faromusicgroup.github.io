@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="0.0 0.0 517.7769028871392 257.7769028871391"
+   fill="none"
+   stroke="none"
+   stroke-linecap="square"
+   stroke-miterlimit="10"
+   id="svg19"
+   sodipodi:docname="MESPI LOGO gordo square.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs23" />
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="true"
+     inkscape:zoom="5.5197517"
+     inkscape:cx="450.20141"
+     inkscape:cy="38.135773"
+     inkscape:window-width="2560"
+     inkscape:window-height="1363"
+     inkscape:window-x="1920"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g17" />
+  <clipPath
+     id="p.0">
+    <path
+       d="m0 0l517.7769 0l0 257.77692l-517.7769 0l0 -257.77692z"
+       clip-rule="nonzero"
+       id="path2" />
+  </clipPath>
+  <g
+     clip-path="url(#p.0)"
+     id="g17">
+    <path
+       fill="#000000"
+       fill-opacity="0.0"
+       d="m0 0l517.7769 0l0 257.77692l-517.7769 0z"
+       fill-rule="evenodd"
+       id="path5" />
+    <path
+       fill="#000000"
+       d="m99.995964 7.9927163l0 0c0 -2.670288E-4 2.2125244E-4 -4.8398972E-4 4.8828125E-4 -4.8398972E-4l58.05564 4.8398972E-4c1.2207031E-4 0 2.4414062E-4 5.1021576E-5 3.3569336E-4 1.4162064E-4c9.1552734E-5 9.059906E-5 1.5258789E-4 2.1362305E-4 1.5258789E-4 3.4236908E-4l-4.8828125E-4 242.03209c0 2.593994E-4 -2.1362305E-4 4.8828125E-4 -4.8828125E-4 4.8828125E-4l-58.05564 -4.8828125E-4l0 0c-2.670288E-4 0 -4.8065186E-4 -2.1362305E-4 -4.8065186E-4 -4.8828125E-4z"
+       fill-rule="evenodd"
+       id="path7" />
+    <path
+       fill="#000000"
+       d="m8.003242 158.03598l0 0c-2.670288E-4 0 -4.8351288E-4 -2.1362305E-4 -4.8351288E-4 -4.8828125E-4l4.8351288E-4 -58.053474c0 -1.296997E-4 5.054474E-5 -2.5177002E-4 1.4209747E-4 -3.4332275E-4c9.059906E-5 -9.1552734E-5 2.1362305E-4 -1.373291E-4 3.414154E-4 -1.373291E-4l242.04109 4.8065186E-4c2.746582E-4 0 4.8828125E-4 2.1362305E-4 4.8828125E-4 4.8065186E-4l-4.8828125E-4 58.053482l0 0c0 2.746582E-4 -2.1362305E-4 4.8828125E-4 -4.8828125E-4 4.8828125E-4z"
+       fill-rule="evenodd"
+       id="path9" />
+    <path
+       fill="#000000"
+       d="m283.63052 7.9927163l0 0c0 -2.670288E-4 2.1362305E-4 -4.8398972E-4 4.8828125E-4 -4.8398972E-4l58.055634 4.8398972E-4c1.5258789E-4 0 2.746582E-4 5.1021576E-5 3.6621094E-4 1.4162064E-4c9.1552734E-5 9.059906E-5 1.2207031E-4 2.1362305E-4 1.2207031E-4 3.4236908E-4l-4.8828125E-4 242.03209c0 2.593994E-4 -2.1362305E-4 4.8828125E-4 -4.5776367E-4 4.8828125E-4l-58.055664 -4.8828125E-4l0 0c-2.4414062E-4 0 -4.8828125E-4 -2.1362305E-4 -4.8828125E-4 -4.8828125E-4z"
+       fill-rule="evenodd"
+       id="path11" />
+    <path
+       fill="#000000"
+       d="m 287.03261,66.046684 v 0 c -2.3e-4,0 -4.8e-4,-2.21e-4 -4.8e-4,-4.88e-4 l 4.8e-4,-58.0534803 c 0,-1.283e-4 6e-5,-2.513e-4 1.5e-4,-3.419e-4 1e-4,-9.1e-5 2.2e-4,-1.421e-4 3.3e-4,-1.421e-4 l 218.08566,4.84e-4 c 2.6e-4,0 4.8e-4,2.165e-4 4.8e-4,4.835e-4 l -4.8e-4,58.0534858 v 0 c 0,2.67e-4 -2.2e-4,4.81e-4 -4.9e-4,4.81e-4 z"
+       fill-rule="evenodd"
+       id="path13"
+       style="stroke-width:0.991177" />
+    <path
+       fill="#000000"
+       d="m450.3797 7.9927163l0 0c0 -2.670288E-4 2.1362305E-4 -4.8398972E-4 4.5776367E-4 -4.8398972E-4l58.055664 4.8398972E-4c1.2207031E-4 0 2.4414062E-4 5.1021576E-5 3.3569336E-4 1.4162064E-4c9.1552734E-5 9.059906E-5 1.5258789E-4 2.1362305E-4 1.5258789E-4 3.4236908E-4l-4.8828125E-4 242.03209c0 2.593994E-4 -2.1362305E-4 4.8828125E-4 -4.8828125E-4 4.8828125E-4l-58.055634 -4.8828125E-4l0 0c-2.746582E-4 0 -4.8828125E-4 -2.1362305E-4 -4.8828125E-4 -4.8828125E-4z"
+       fill-rule="evenodd"
+       id="path15" />
+  </g>
+</svg>

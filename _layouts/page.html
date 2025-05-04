@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+    {% include header.html %}
+
+    <h1>{{ page.title }}</h1>
+    {% if page.featured-image %}
+      <span class="image main">
+        <img src="{{ page.featured-image }}" alt="">
+      </span>
+    {% endif %}
+
+    {% if page.player-id %}
+    <iframe 
+      src="https://samply.app/embed/{{ page.player-id }}?color=4b4b4b"
+      width="100%"
+      frameborder="0">
+    </iframe>
+    {% endif %}
+    
+    
+    {% if page.cover-position=="right" %}
+    <section>
+      <br> 
+      <div class="row">
+        {% if page.lyrics %}
+        <div class="7u 12u$(medium)">
+          <h2>Lyrics</h2>
+          <!-- <pre><code>{{ page.lyrics}}</code></pre> -->
+          <pre>{{ page.lyrics}}</pre>
+        </div>
+        {% endif %}
+        {% if page.cover-image %}
+        <div class="5u$ 12u$(medium)">
+          <span class="image main">
+            <img src="{{ page.cover-image }}" alt="">
+          </span>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% else if page.cover-position=="left" %}
+    <section>
+      <br> 
+      <div class="row">
+        {% if page.cover-image %}
+        <div class="5u 12u$(medium)">
+          <span class="image main">
+            <img src="{{ page.cover-image }}" alt="">
+          </span>
+          <ul class="actions">
+            <li>
+                <a href="{{ page.youtube-link }}" class="button special">
+                    <span class="fa-layers fa-fw">
+                        <i class="fab fa-youtube fa-lg"></i> <!-- YouTube icon -->
+                        <span class="fa-layers-text">{{ page.title }}</span>
+                    </span>
+                </a>
+            </li>
+            </ul>
+        </div>
+        {% endif %}
+        {% if page.lyrics %}
+        <div class="7u$ 12u$(medium)">
+          <h2>Lyrics</h2>
+          <pre style="white-space: pre-wrap;">{{ page.lyrics }}</pre>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% endif %}
+    
+    <section>
+      <div class="row">
+        {{ content }}
+      </div>
+    </section>
+    {% include footer.html %}
+
+
+</body>
+
+</html>

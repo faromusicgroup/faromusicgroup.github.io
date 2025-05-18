@@ -7,7 +7,7 @@
 /* Header */
 
 	#header {
-		@include padding(5em, 0, (3em, 0, 2em, 0));
+		@include padding(5em, 0, (2em, 0, 1em, 0));
 
 		.logo {
 			display: block;
@@ -15,7 +15,7 @@
 			color: inherit;
 			font-weight: _font(weight-bold);
 			letter-spacing: _font(letter-spacing);
-			margin: 0 0 (_size(element-margin) * 1.25) 0;
+			margin: 0 0 (_size(element-margin) * 0.5) 0;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -29,17 +29,18 @@
 
 				img {
 					display: block;
-					width: 15em;
+					width: 4em;
 					height: auto;
 				}
 			}
-
+			
 			.symbol-main {
 
 				img {
 					display: block;
-					width: 20em;
+					width: 8em;
 					height: auto;
+					margin-bottom: 2em;
 				}
 			}
 		}
@@ -47,11 +48,11 @@
 		/* Media query for smaller screens */
 		@media only screen and (max-width: 768px) {
 			.logo .symbol-others img {
-				width: 10em; /* Adjust the width for smaller screens */
+				width: 2em; /* Adjust the width for smaller screens */
 			}
 
 			.logo .symbol-main img {
-				width: 15em; /* Adjust the width for smaller screens */
+				width: 4em; /* Adjust the width for smaller screens */
 			}
 		}
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "mespi_music"
+  spec.name          = "faro"
   spec.version       = "1.2"
   spec.authors       = ["faro"]
   spec.email         = ["faro.official.group@gmail.com"]

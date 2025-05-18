@@ -47,6 +47,12 @@
 				{% if site.github_username %}
 				<li><a href="https://github.com/{{ site.github_username }}" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
 				{% endif %}
+				{% if site.spotify_username %}
+				<li><a href="https://open.spotify.com/artist/{{ site.spotify_username }}" class="icon style2 fa-spotify"><span class="label">Spotify</span></a></li>
+				{% endif %}
+				{% if site.whatsapp_channel_id %}
+				<li><a href="https://www.whatsapp.com/channel/{{ site.whatsapp_channel_id }}" class="icon style2 fa-whatsapp"><span class="label">Whatsapp</span></a></li>
+				{% endif %}
 				{% if site.500px_username %}
 				<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
 				{% endif %}
@@ -57,7 +63,7 @@
 		</section>
 		<ul class="copyright">
 			<li>&copy; {{ site.title }}. All rights reserved</li>
-			<li>@mespimusic</li>
+			<li>@faromusicgroup</li>
 			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 			<li>Integration by: <a href="http://andrewbanchi.ch">AB</a></li>
 		</ul>

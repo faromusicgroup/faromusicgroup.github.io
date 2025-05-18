@@ -14,6 +14,10 @@
       </span>
     {% endif %}
 
+    {% if page.quote %}
+        <div class="quote">{{ page.quote | markdownify }}</div>
+    {% endif %}
+
     {% if page.player-id %}
     <iframe 
       src="https://samply.app/embed/{{ page.player-id }}?color=4b4b4b"
@@ -21,8 +25,18 @@
       frameborder="0">
     </iframe>
     {% endif %}
-    
-    
+
+    {% if page.spotify-track-id %}
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/{{ page.spotify-track-id }}?theme={% if page.spotify-add-color %}1{% else %}0{% endif %}"
+      width="100%" height="{% if page.spotify-size == 'large' %}352{% else %}152{% endif %}"
+      frameBorder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+    {% endif %}
+
     {% if page.cover-position=="right" %}
     <section>
       <br> 
@@ -34,10 +48,10 @@
           <pre>{{ page.lyrics}}</pre>
         </div>
         {% endif %}
-        {% if page.cover-image %}
+        {% if page.page-image %}
         <div class="5u$ 12u$(medium)">
           <span class="image main">
-            <img src="{{ page.cover-image }}" alt="">
+            <img src="{{ page.page-image }}" alt="">
           </span>
         </div>
         {% endif %}
@@ -47,21 +61,32 @@
     <section>
       <br> 
       <div class="row">
-        {% if page.cover-image %}
+        {% if page.page-image %}
         <div class="5u 12u$(medium)">
           <span class="image main">
-            <img src="{{ page.cover-image }}" alt="">
+            <img src="{{ page.page-image }}" alt="">
           </span>
-          <ul class="actions">
+          <ul class="actions" style="display: flex; justify-content: center; width: 100%;">
             <li>
+              {% if page.youtube-link %}
                 <a href="{{ page.youtube-link }}" class="button special">
                     <span class="fa-layers fa-fw">
                         <i class="fab fa-youtube fa-lg"></i> <!-- YouTube icon -->
                         <span class="fa-layers-text">{{ page.title }}</span>
                     </span>
                 </a>
+              {% endif %}
+              {% if page.spotify-track-id %}
+                <li>
+                    <a href="{{ page.spotify-track-id }}" class="button special">
+                        <span class="fa-layers fa-fw">
+                            <i class="fab fa-spotify fa-lg"></i> <!-- Spotify icon -->
+                            <span class="fa-layers-text">{{ page.title }}</span>
+                        </span>
+                    </a>
+              {% endif %}
             </li>
-            </ul>
+          </ul>
         </div>
         {% endif %}
         {% if page.lyrics %}

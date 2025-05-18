@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MESPI
+title: faro music group
 ---
 
 <!-- <header>

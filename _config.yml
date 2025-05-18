@@ -6,18 +6,20 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: MESPI
-email: mespi.arts@gmail.com
-description: Music portfolio.
+title: faro
+email: faro.official.group@gmail.com
+description: Ser un faro en la tormenta.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 
 # Logo settings
-logo-image-url: images/logo/logo_gray
+logo-image-url: images/logo/logo-white
 font-awesome-icon-logo:
 
 # Social settings
-youtube_channel: "@mespimusic"
+youtube_channel: "@faromusicgroup"
+spotify_username: 1FEz8bE9v7vHOsUh70NLjM
+whatsapp_channel_id: 0029Vb61llmLo4hXB1O0Y20e
 # github_username: andrewbanchich
 # twitter_username: andrewbanchich
 # facebook_URL: andrewbanchich
@@ -31,3 +33,4 @@ markdown: kramdown
 
 # Layout settings
 home-link-in-menu: yes
+

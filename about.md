@@ -7,9 +7,9 @@ permalink: /about/
 featured-image: /images/other/banner.jpeg
 ---
 
-    faro quiere vivir la fe 🙏
-                vivir la música 🎵
-                vivir la vida 🌊
+    faro: vivir la fe 🙏
+          vivir la música 🎵
+          vivir la vida 🌊
 
 Únete al canal de 📲 Whatsapp para no perderte nada (canal anónimo: sólo enviamos nosotros y nadie ve quién está)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Whatsapp faro music group](https://whatsapp.com/channel/0029Vb61llmLo4hXB1O0Y20e)

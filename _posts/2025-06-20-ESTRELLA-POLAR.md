@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  Estrella Polar
-date:   2025-06-13 00:00:00 0000
+date:   2025-06-20 00:00:00 0000
 # categories: jekyll update
 permalink: /estrella-polar/
 main-image: /images/covers/estrella-polar.png

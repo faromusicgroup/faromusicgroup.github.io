@@ -8,10 +8,10 @@ main-image: /images/covers/estrella-polar.png
 page-image: /images/covers/estrella-polar-image.png
 cover-position: left
 # player-id: f7JhyPAkjrsF5du8fcQF (samply)
-# spotify-track-id: 3x3rg6IRDpQbwnffLYv2JL
+spotify-track-id: 4MdTq6W6k8pbGbOOj3GOch
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large
-# youtube-link: https://www.youtube.com/watch?v=RGU15lYcA4g
+youtube-link: https://youtu.be/EGgzhzkpfvg
 quote: "_Desde el cielo serás_"
 lyrics:
     Un nuevo día que comienza
@@ -76,17 +76,7 @@ lyrics:
 
     Amor hasta el extremo
 
-    Es la luz de este misterio
-
-    Es nuestra estrella polar
-
-
-    QUIERO VOLVER A DESPERTAR
-
-    CUANTO TIEMPO HE PERDIDO SIN SABER
-
-    QUE TÚ AQUÍ ESTÁS
-
+    Es la luz de este misterioHa llegado viernes! 
     TODOS LOS DÍAS HASTA EL FINAL
 
     TU CRUZ ES ROCA FIRME

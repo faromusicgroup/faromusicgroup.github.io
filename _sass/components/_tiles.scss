@@ -262,5 +262,13 @@
 				margin: $gutter 0 0 0;
 			}
 		}
+
+		// Divider line separating EP groups
+		> .ep-divider {
+			flex-basis: 100%;
+			height: 2px;
+			background: #ffffff;
+			margin: 2em 0;
+		}
 	}
 

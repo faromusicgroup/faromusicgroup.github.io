@@ -1,18 +1,30 @@
 <section class="tiles">
 
-{% for post in site.posts limit:site.front-page-posts %}
-	<article class="style{{ forloop.index | plus:1 }}">
-		<span class="image">
-			<img src="{{ site.url }}{{ site.baseurl }}{{ post.main-image }}" alt="" />
-		</span>
-		<a href="{{ post.url | prepend:site.baseurl | prepend:site.url }}">
-			<!-- <h2>{{ post.title }}</h2> -->
-			<!-- <div class="content"> -->
-				<!-- <p>{{ post.url }}</p> -->
-				<!-- <p>{{ post.excerpt }}</p> -->
-			<!-- </div> -->
-		</a>
-	</article>
+{% assign tile_counter = 0 %}
+{% assign groups = site.posts | group_by: 'ep' | sort: 'name' | reverse %}
+
+{% for group in groups %}
+	{% if forloop.index0 > 0 %}
+		<div class="ep-divider"></div>
+	{% endif %}
+
+	{% assign ep_posts = group.items | sort: 'path' | reverse %}
+	{% for post in ep_posts %}
+		{% assign tile_counter = tile_counter | plus: 1 %}
+		{% assign style_index = tile_counter | modulo: 6 | plus: 1 %}
+		<article class="style{{ style_index }}">
+			<span class="image">
+				<img src="{{ site.url }}{{ site.baseurl }}{{ post.main-image }}" alt="" />
+			</span>
+			<a href="{{ post.url | prepend:site.baseurl | prepend:site.url }}">
+				<!-- <h2>{{ post.title }}</h2> -->
+				<!-- <div class="content"> -->
+					<!-- <p>{{ post.url }}</p> -->
+					<!-- <p>{{ post.excerpt }}</p> -->
+				<!-- </div> -->
+			</a>
+		</article>
+	{% endfor %}
 {% endfor %}
 
 </section>

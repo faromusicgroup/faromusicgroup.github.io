@@ -17,7 +17,7 @@ featured-image: /images/other/banner.jpeg
 Síguenos en 📺 Youtube:  
 &nbsp;&nbsp;&nbsp;&nbsp;[Youtube faro music group](https://www.youtube.com/@faromusicgroup)
 
-Síguenos en 🎧 Spotify: (coming soon)  
+Síguenos en 🎧 Spotify:
 &nbsp;&nbsp;&nbsp;&nbsp;[Spotify faro music group](https://open.spotify.com/artist/1FEz8bE9v7vHOsUh70NLjM)
 
 <!-- <a href="https://www.whatsapp.com/channel/{{ page.whatsapp-channel-id }}" class="button special" style="font-size: 0.75em;" target="_blank">

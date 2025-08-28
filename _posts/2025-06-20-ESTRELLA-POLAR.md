@@ -74,10 +74,19 @@ lyrics:
 
     Entre caídas, entre mil tropiezos
 
-
     Amor hasta el extremo
 
-    Es la luz de este misterioHa llegado viernes! 
+    Es la luz de este misterio
+
+    Es nuestra estrella polar
+
+
+    QUIERO VOLVER A DESPERTAR
+
+    CUANTO TIEMPO HE PERDIDO SIN SABER
+
+    QUE TÚ AQUÍ ESTÁS
+ 
     TODOS LOS DÍAS HASTA EL FINAL
 
     TU CRUZ ES ROCA FIRME

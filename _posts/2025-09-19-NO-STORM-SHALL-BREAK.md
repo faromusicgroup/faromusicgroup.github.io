@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  No storm shall break
-date:   2025-09-19 00:00:00 0000
+date:   2025-09-18 00:00:00 0000
 ep: 3
 # categories: jekyll update
 permalink: /no-storm-shall-break/
@@ -13,7 +13,7 @@ cover-position: left
 # spotify-track-id: 0KWoEzVjjnJTy8n1lMkgn9
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large
-# youtube-link: https://youtu.be/ci8lvbXk55U
+youtube-link: https://youtu.be/O6erhK91_7o
 quote: "_No storm shall break what He promised to be sealed_"
 lyrics:
 

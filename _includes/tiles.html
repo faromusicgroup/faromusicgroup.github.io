@@ -14,7 +14,20 @@
 		{% assign style_index = tile_counter | modulo: 6 | plus: 1 %}
 		<article class="style{{ style_index }}">
 			<span class="image">
-				<img src="{{ site.url }}{{ site.baseurl }}{{ post.main-image }}" alt="" />
+				{% if tile_counter < 5 %}
+					{% assign loading_attr = 'eager' %}
+					{% assign fetchpriority_attr = 'high' %}
+				{% else %}
+					{% assign loading_attr = 'lazy' %}
+					{% assign fetchpriority_attr = 'low' %}
+				{% endif %}
+				<!-- Construct thumbnail path from main-image cover path -->
+				 <!-- Example: /images/covers/angels.png -> /images/covers/thumbs/angels.webp -->
+				{% assign _img_path = post.main-image %}
+				{% assign _img_name = _img_path | split: '/' | last %}
+				{% assign _img_stem = _img_name | replace: '.png','' | replace: '.jpg','' | replace: '.jpeg','' | replace: '.webp','' %}
+				{% assign _thumb_path = '/images/covers/thumbs/' | append: _img_stem | append: '.webp' %}
+				<img src="{{ site.url }}{{ site.baseurl }}{{ _thumb_path }}" alt="{{ post.title }}" loading="{{ loading_attr }}" decoding="async" fetchpriority="{{ fetchpriority_attr }}" width="600" height="600" />
 			</span>
 			<a href="{{ post.url | prepend:site.baseurl | prepend:site.url }}">
 				<!-- <h2>{{ post.title }}</h2> -->

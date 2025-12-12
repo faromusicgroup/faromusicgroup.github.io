@@ -87,6 +87,7 @@ lyrics:
 
     L'escalfor de l'hivern.
 
+    
     Cada flor, cada riu,
 
     És la llum que somriu,

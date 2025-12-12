@@ -85,7 +85,15 @@ lyrics:
 
     Ple de foc d'un estel 
 
-    L'escalfor de l'hivern (2)
+    L'escalfor de l'hivern.
+
+    Cada flor, cada riu,
+
+    És la llum que somriu,
+
+    Ple de foc d'un estel 
+
+    L'escalfor de l'hivern.
 
 
     PETITA FLOR QUE HA NASCUT 

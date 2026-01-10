@@ -10,7 +10,7 @@ page-image: /images/covers/canco-de-plor.png
 # page-image: /images/covers/fire-below-image.png
 cover-position: left
 # player-id: f7JhyPAkjrsF5du8fcQF (samply)
-# spotify-track-id: 3Hvo5ibTJZjiSD2n0qdl4y
+spotify-track-id: 6SC3M98Vg362bHIhg3Zppa
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large
 youtube-link: https://youtu.be/_tFyGUrbojw

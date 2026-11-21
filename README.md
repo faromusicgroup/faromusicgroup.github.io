@@ -1,3 +1,39 @@
+# Faro Music Group website
+
+Live at https://www.faromusicgroup.com, built by GitHub Pages from `main`.
+
+## Local development
+
+The `Gemfile` pins the `github-pages` gem, so local builds use the same Jekyll
+and plugin versions as the live site (Ruby 3.3, Jekyll 3.10). Gems install into
+`vendor/bundle` inside this folder, so they never clash with other projects.
+
+One-time setup (Windows):
+
+```sh
+winget install RubyInstallerTeam.RubyWithDevKit.3.3   # then open a new terminal
+bundle config set --local path vendor/bundle
+bundle install
+```
+
+On macOS/Linux, install Ruby 3.3 (e.g. with `rbenv`) and run the same two `bundle` commands.
+
+Run the site at http://127.0.0.1:4000 (reloads the browser on save):
+
+```sh
+bundle exec jekyll serve --livereload
+```
+
+Add `--future` to preview a song whose post date is in the future
+(`_config.yml` has `future: false`, so those are hidden until their date).
+
+### Cover thumbnails
+
+`scripts/generate_thumbnails.sh` creates `images/covers/thumbs/*.webp` from the
+covers. It needs ImageMagick (`winget install ImageMagick.ImageMagick`).
+
+---
+
 # (WIP) Phantom - Jekyll Theme
 
 A Jekyll version of the "Phantom" theme by [HTML5 UP](https://html5up.net/).

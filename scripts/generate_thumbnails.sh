@@ -11,8 +11,14 @@ set -euo pipefail
 DIM="${1:-600}"
 QUALITY="${2:-80}"
 
-if ! command -v convert >/dev/null 2>&1; then
-  echo "Error: ImageMagick 'convert' is required but not found in PATH." >&2
+# Prefer ImageMagick 7's `magick`. Only fall back to `convert` (ImageMagick 6)
+# when it isn't Windows' unrelated System32\convert.exe (a disk-format tool).
+if command -v magick >/dev/null 2>&1; then
+  IM=(magick)
+elif command -v convert >/dev/null 2>&1 && [[ "$(command -v convert)" != *[Ss]ystem32* ]]; then
+  IM=(convert)
+else
+  echo "Error: ImageMagick is required but not found in PATH ('magick' or 'convert')." >&2
   exit 1
 fi
 
@@ -40,7 +46,7 @@ for f in "$SRC_DIR"/*.{png,jpg,jpeg,webp}; do
   fi
 
   echo "Converting: $f -> $out"
-  convert "$f" \
+  "${IM[@]}" "$f" \
     -resize "${SIZE}^" \
     -gravity center -extent "$SIZE" \
     -quality "$QUALITY" \

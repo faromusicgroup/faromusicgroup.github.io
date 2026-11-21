@@ -43,9 +43,7 @@
       <div class="row">
         {% if page.lyrics %}
         <div class="7u 12u$(medium)">
-          <h2>Lyrics</h2>
-          <!-- <pre><code>{{ page.lyrics}}</code></pre> -->
-          <pre>{{ page.lyrics}}</pre>
+          {% include lyrics.html %}
         </div>
         {% endif %}
         {% if page.page-image %}
@@ -92,8 +90,7 @@
         {% endif %}
         {% if page.lyrics %}
         <div class="7u$ 12u$(medium)">
-          <h2>Lyrics</h2>
-          <pre style="white-space: pre-wrap;">{{ page.lyrics }}</pre>
+          {% include lyrics.html %}
         </div>
         {% endif %}
       </div>

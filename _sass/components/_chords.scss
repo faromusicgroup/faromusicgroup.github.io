@@ -1,0 +1,23 @@
+/* Lyrics & chords (song pages) */
+
+	.lyrics {
+		white-space: pre-wrap;
+
+		.chord {
+			display: none;
+		}
+
+		&.show-chords {
+			line-height: 3;
+
+			// Taken out of the text flow and lifted above the syllable it precedes.
+			.chord {
+				display: inline;
+				position: absolute;
+				margin-top: -1.15em;
+				color: _palette(accent2);
+				font-weight: _font(weight-bold-alt);
+				user-select: none;
+			}
+		}
+	}

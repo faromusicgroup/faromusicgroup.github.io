@@ -1,0 +1,9 @@
+<h2>Lyrics</h2>
+{% comment %} Chords are written inline in the lyrics as [Am] (or songbook-style \[LAm]) and stay hidden until shown. {% endcomment %}
+{% if page.lyrics contains '[' %}
+<ul class="actions chord-controls" hidden>
+  <li><button type="button" class="button small" id="chords-toggle" aria-pressed="false">Chords</button></li>
+</ul>
+{% endif %}
+<pre class="lyrics">{{ page.lyrics | replace: '\[', '[' | replace: '[', '<span class="chord">' | replace: ']', '</span>' }}</pre>
+{% if page.lyrics contains '[' %}<script src="{{ site.baseurl }}/assets/js/chords.js"></script>{% endif %}

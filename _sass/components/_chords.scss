@@ -1,5 +1,27 @@
 /* Lyrics & chords (song pages) */
 
+	// A compact row that wraps on phones (the theme's ul.actions stacks full-width buttons there).
+	.chord-controls {
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			display: inline-block;
+			padding: 0 1em 0.5em 0;
+		}
+
+		.chord-steps {
+			display: inline-block;
+			min-width: 2.5em;
+			text-align: center;
+		}
+
+		// Transpose and notation only make sense while chords are shown.
+		&:not(.show-chords) .chord-option {
+			display: none;
+		}
+	}
+
 	.lyrics {
 		white-space: pre-wrap;
 

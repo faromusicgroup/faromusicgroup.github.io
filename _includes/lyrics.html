@@ -1,8 +1,17 @@
 <h2>Lyrics</h2>
 {% comment %} Chords are written inline in the lyrics as [Am] (or songbook-style \[LAm]) and stay hidden until shown. {% endcomment %}
 {% if page.lyrics contains '[' %}
-<ul class="actions chord-controls" hidden>
+<ul class="chord-controls" hidden>
   <li><button type="button" class="button small" id="chords-toggle" aria-pressed="false">Chords</button></li>
+  <li class="chord-option">
+    <button type="button" class="button small" data-step="-1" aria-label="Transpose down">&#9660;</button>
+    <span class="chord-steps" id="chord-steps" aria-live="polite">0</span>
+    <button type="button" class="button small" data-step="1" aria-label="Transpose up">&#9650;</button>
+  </li>
+  <li class="chord-option">
+    <button type="button" class="button small" data-notation="abc">ABC</button>
+    <button type="button" class="button small" data-notation="doremi">Do Re Mi</button>
+  </li>
 </ul>
 {% endif %}
 <pre class="lyrics">{{ page.lyrics | replace: '\[', '[' | replace: '[', '<span class="chord">' | replace: ']', '</span>' }}</pre>

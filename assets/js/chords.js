@@ -1,8 +1,66 @@
-// Song chords: written inline in the lyrics as [Am], rendered as <span class="chord"> by _includes/lyrics.html.
+// Song chords, written inline in the lyrics as [Am] or [LAm] and rendered as <span class="chord"> by _includes/lyrics.html.
+// Show/hide, transpose, and ABC / Do Re Mi notation. Show/hide and notation are remembered in the browser.
 (function () {
   var lyrics = document.querySelector('.lyrics');
-  var chords = lyrics.querySelectorAll('.chord');
+  var controls = document.querySelector('.chord-controls');
   var toggle = document.getElementById('chords-toggle');
+  var chords = [].slice.call(lyrics.querySelectorAll('.chord'));
+  var original = chords.map(function (chord) { return chord.textContent; });
+  var shown = load('chords') === 'on', notation = load('chord-notation') || 'abc', steps = 0;
+
+  // A note: a syllable (DO, Do) or a letter (C), then an optional accidental (#, b, or songbook-style s).
+  // "Fadd9"/"Faug" are F chords, not Fa; "sus" is never a sharp.
+  var NOTE = /(?:(DO|Do|RE|Re|MI|Mi|FA|Fa|SOL|Sol|LA|La|SI|Si)(?!dd|ug)|([A-G]))(#|b|s(?!us))?/g;
+  var LETTERS = 'CDEFGAB', SYLLABLES = ['Do', 'Re', 'Mi', 'Fa', 'Sol', 'La', 'Si'], NATURAL = [0, 2, 4, 5, 7, 9, 11];
+  var SHARPS = 'C C# D D# E F F# G G# A A# B'.split(' '), FLATS = 'C Db D Eb E F Gb G Ab A Bb B'.split(' ');
+  var TONIC = { major: 'CDDEEFFGAABB', minor: 'CCDEEFFGGABB' }; // letter of each key by pitch: Db, Eb, Ab, Bb / C#m, G#m
+
+  // A written note: its letter (0 = C … 6 = B) and pitch (0 = C … 11 = B).
+  function parse(syllable, letter, accidental) {
+    var i = syllable ? SYLLABLES.indexOf(syllable[0] + syllable.slice(1).toLowerCase()) : LETTERS.indexOf(letter);
+    return { letter: i, pitch: (NATURAL[i] + (accidental === 'b' ? 11 : accidental ? 1 : 0)) % 12 };
+  }
+
+  // The song's key is its first chord.
+  var key = { letter: 0, pitch: 0, minor: false };
+  original.some(function (text) {
+    var m = new RegExp(NOTE.source).exec(text);
+    if (m) {
+      key = parse(m[1], m[2], m[3]);
+      key.minor = /^m(?!aj)/.test(text.slice(m.index + m[0].length));
+    }
+    return m;
+  });
+
+  function spell(letter, p) {
+    var accidental = (p - NATURAL[letter] + 18) % 12 - 6;
+    var name = LETTERS[letter] + (accidental > 0 ? '#' : accidental < 0 ? 'b' : '');
+    if (Math.abs(accidental) > 1 || /^(E#|B#|Cb|Fb)$/.test(name)) name = (accidental > 0 ? SHARPS : FLATS)[p];
+    return notation === 'doremi' ? SYLLABLES[LETTERS.indexOf(name[0])] + name.slice(1) : name;
+  }
+
+  // Every note's letter moves as much as the key's, so chords keep their spelling (E/G# in C → F#/A# in D),
+  // and the new key is spelled the usual way (Bb, not A#).
+  function render() {
+    var tonic = TONIC[key.minor ? 'minor' : 'major'][(key.pitch + steps + 12) % 12];
+    var shift = LETTERS.indexOf(tonic) - key.letter + 7;
+    chords.forEach(function (chord, i) {
+      chord.textContent = original[i].replace(NOTE, function (m, syllable, letter, accidental) {
+        var note = parse(syllable, letter, accidental);
+        return spell((note.letter + shift) % 7, (note.pitch + steps + 12) % 12);
+      });
+    });
+    document.getElementById('chord-steps').textContent = steps > 0 ? '+' + steps : steps < 0 ? '−' + -steps : '0';
+    [lyrics, controls].forEach(function (el) { el.classList.toggle('show-chords', shown); });
+    press(toggle, shown);
+    controls.querySelectorAll('[data-notation]').forEach(function (b) { press(b, b.dataset.notation === notation); });
+    if (shown) layout();
+  }
+
+  function press(button, on) {
+    button.classList.toggle('special', on);
+    button.setAttribute('aria-pressed', on);
+  }
 
   // Chords float above the text, so two close together can overlap: push the later one right.
   function layout() {
@@ -18,14 +76,18 @@
     });
   }
 
-  function show(on) {
-    lyrics.classList.toggle('show-chords', on);
-    toggle.classList.toggle('special', on);
-    toggle.setAttribute('aria-pressed', on);
-    if (on) layout();
-  }
+  function load(name) { try { return localStorage.getItem(name); } catch (e) { return null; } }
+  function save(name, value) { try { localStorage.setItem(name, value); } catch (e) {} }
 
-  toggle.addEventListener('click', function () { show(!lyrics.classList.contains('show-chords')); });
-  window.addEventListener('resize', function () { if (lyrics.classList.contains('show-chords')) layout(); });
-  document.querySelector('.chord-controls').hidden = false;
+  controls.addEventListener('click', function (e) {
+    var button = e.target.closest('button');
+    if (!button) return;
+    if (button === toggle) save('chords', (shown = !shown) ? 'on' : 'off');
+    else if (button.dataset.step) steps = (steps + Number(button.dataset.step)) % 12;
+    else save('chord-notation', notation = button.dataset.notation);
+    render();
+  });
+  window.addEventListener('resize', function () { if (shown) layout(); });
+  controls.hidden = false;
+  render();
 })();

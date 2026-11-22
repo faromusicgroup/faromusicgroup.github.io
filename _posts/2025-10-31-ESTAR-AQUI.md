@@ -4,13 +4,10 @@ title:  Estar Aquí
 lang: es
 date:   2025-10-17 00:00:00 0000
 ep: 3
-# categories: jekyll update
 permalink: /estar-aqui/
 main-image: /images/covers/estar-aqui.png
 page-image: /images/covers/estar-aqui.png
-# page-image: /images/covers/fire-below-image.png
 cover-position: left
-# player-id: f7JhyPAkjrsF5du8fcQF (samply)
 spotify-track-id: 1Edn8nIjKdXH7TveViQNuc
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large

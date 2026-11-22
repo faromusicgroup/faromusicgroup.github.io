@@ -1,16 +1,13 @@
 ---
 layout: page
-title:  Fire Below
+title:  Fire & Below
 lang: en
 date:   2025-07-11 00:00:00 0000
 ep: 2
-# categories: jekyll update
 permalink: /fire-below/
 main-image: /images/covers/fire-below.png
 page-image: /images/covers/fire-below.png
-# page-image: /images/covers/fire-below-image.png
 cover-position: left
-# player-id: f7JhyPAkjrsF5du8fcQF (samply)
 spotify-track-id: 0KWoEzVjjnJTy8n1lMkgn9
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large

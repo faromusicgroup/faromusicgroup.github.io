@@ -4,12 +4,10 @@ title:  Estrella Polar
 lang: es
 date:   2025-06-20 00:00:00 0000
 ep: 1
-# categories: jekyll update
 permalink: /estrella-polar/
 main-image: /images/covers/estrella-polar.png
 page-image: /images/covers/estrella-polar.png
 cover-position: left
-# player-id: f7JhyPAkjrsF5du8fcQF (samply)
 spotify-track-id: 4MdTq6W6k8pbGbOOj3GOch
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large

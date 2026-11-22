@@ -4,14 +4,11 @@ title:  No storm shall break
 lang: en
 date:   2025-09-18 00:00:00 0000
 ep: 3
-# categories: jekyll update
 permalink: /no-storm-shall-break/
 main-image: /images/covers/no-storm-shall-break.png
 page-image: /images/covers/no-storm-shall-break.png
-# page-image: /images/covers/fire-below-image.png
 cover-position: left
-# player-id: f7JhyPAkjrsF5du8fcQF (samply)
-# spotify-track-id: 0KWoEzVjjnJTy8n1lMkgn9
+spotify-track-id: 4oBPtdbpqkB6pFWz8P1D3E
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large
 youtube-link: https://youtu.be/O6erhK91_7o

@@ -4,14 +4,11 @@ title:  Dime que me amas
 lang: es
 date:   2025-11-26 00:00:00 0000
 ep: 4
-# categories: jekyll update
 permalink: /dime-que-me-amas/
 main-image: /images/covers/dime-que-me-amas.png
 page-image: /images/covers/dime-que-me-amas.png
-# page-image: /images/covers/fire-below-image.png
 cover-position: left
-# player-id: f7JhyPAkjrsF5du8fcQF (samply)
-# spotify-track-id: 3Hvo5ibTJZjiSD2n0qdl4y
+spotify-track-id: 2hBtsoV886JCfGtyQWJwWm
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large
 youtube-link: https://youtu.be/rj-DxAZjxkY

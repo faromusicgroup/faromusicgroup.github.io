@@ -4,13 +4,10 @@ title:  Cançó de plor
 lang: ca
 date:   2025-12-12 00:00:00 0000
 ep: 4
-# categories: jekyll update
 permalink: /canco-de-plor/
 main-image: /images/covers/canco-de-plor.png
 page-image: /images/covers/canco-de-plor.png
-# page-image: /images/covers/fire-below-image.png
 cover-position: left
-# player-id: f7JhyPAkjrsF5du8fcQF (samply)
 spotify-track-id: 6SC3M98Vg362bHIhg3Zppa
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large

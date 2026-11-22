@@ -4,13 +4,10 @@ title:  Rostro del Amor
 lang: es
 date:   2025-12-24 00:00:00 0000
 ep: 4
-# categories: jekyll update
 permalink: /rostro-del-amor/
 main-image: /images/covers/rostro-del-amor.png
 page-image: /images/covers/rostro-del-amor.png
-# page-image: /images/covers/fire-below-image.png
 cover-position: left
-# player-id: f7JhyPAkjrsF5du8fcQF (samply)
 spotify-track-id: 2nobvsofWbvfnlcQgQgTvE
 spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large

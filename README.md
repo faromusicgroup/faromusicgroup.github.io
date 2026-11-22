@@ -44,6 +44,13 @@ Each song is a post in `_posts/`. In its front matter:
   Write them in Do Re Mi (`[FA]`, `[SIb]`, `[FA#m]`, songbook-style `[FAsm]`) or
   ABC (`[F]`, `[Bb]`, `[F#m]`). A line of only chords is an instrumental part:
   `[SOL RE MIm DO (x2)]`. Songs without chords simply show the lyrics.
+- `credit:` (optional): a source line shown under the lyrics, e.g.
+  `credit: Oración de San Alfonso María de Ligorio`.
+
+The **PDF** button prints the song as a chord sheet (`_includes/song-sheet.html`,
+`_sass/components/_sheet.scss`). On songs with chords it first asks: with chords
+(in the key and notation chosen on the page) or lyrics only. Visitors then
+choose "Save as PDF".
 
 ---
 

@@ -7,7 +7,7 @@
 @import 'libs/mixins';
 @import 'libs/skel';
 @import 'font-awesome.min.css';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900|Jost:300,400,400i,600');
 
 /*
 	Phantom by HTML5 UP
@@ -60,6 +60,7 @@
 	@import 'components/table';
 	@import 'components/button';
 	@import 'components/chords';
+	@import 'components/sheet';
 	@import 'components/tiles';
 
 // Layout.

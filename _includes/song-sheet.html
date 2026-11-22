@@ -1,0 +1,11 @@
+{% comment %} The end of the printed song sheet (PDF button, _sass/components/_sheet.scss): only shown while printing. {% endcomment %}
+<div class="sheet-only sheet-end">
+  <span class="sheet-logo"><img src="{{ site.baseurl }}/images/logo/logo-white.svg" alt=""></span>
+  {% if page.spotify-track-id or page.youtube-link %}
+  <div class="sheet-links">
+    {% if page.spotify-track-id %}<figure><figcaption>Spotify Link</figcaption><div data-qr="https://open.spotify.com/track/{{ page.spotify-track-id }}"></div></figure>{% endif %}
+    {% if page.youtube-link %}<figure><figcaption>YouTube Link</figcaption><div data-qr="{{ page.youtube-link }}"></div></figure>{% endif %}
+  </div>
+  {% endif %}
+  <div class="sheet-footer"><img src="{{ site.baseurl }}/images/logo/logo-black.svg" alt=""><span>faro</span></div>
+</div>

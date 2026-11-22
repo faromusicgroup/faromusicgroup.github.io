@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  Cançó de plor
+lang: ca
 date:   2025-12-12 00:00:00 0000
 ep: 4
 # categories: jekyll update

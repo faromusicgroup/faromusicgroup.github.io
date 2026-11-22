@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  No storm shall break
+lang: en
 date:   2025-09-18 00:00:00 0000
 ep: 3
 # categories: jekyll update

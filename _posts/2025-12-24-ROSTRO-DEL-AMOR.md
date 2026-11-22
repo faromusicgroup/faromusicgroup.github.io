@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  Rostro del Amor
+lang: es
 date:   2025-12-24 00:00:00 0000
 ep: 4
 # categories: jekyll update

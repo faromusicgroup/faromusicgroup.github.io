@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  Estrella Polar
+lang: es
 date:   2025-06-20 00:00:00 0000
 ep: 1
 # categories: jekyll update

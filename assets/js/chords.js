@@ -1,5 +1,6 @@
 // Song chords, written inline in the lyrics as [Am] or [LAm] and rendered as <span class="chord"> by _includes/lyrics.html.
-// Show/hide, transpose, and ABC / Do Re Mi notation. Show/hide and notation are remembered in the browser.
+// Show/hide, transpose, and ABC / Do Re Mi notation. Notation defaults to the song's language (`lang` in its
+// front matter): ABC for English, Do Re Mi otherwise. Show/hide, and a visitor's notation per default, are remembered.
 (function () {
   var lyrics = document.querySelector('.lyrics');
   var controls = document.querySelector('.chord-controls');
@@ -13,7 +14,8 @@
     });
   var chords = [].slice.call(lyrics.querySelectorAll('.chord'));
   var original = chords.map(function (chord) { return chord.textContent; });
-  var shown = load('chords') === 'on', notation = load('chord-notation') || 'abc', steps = 0;
+  var songNotation = !lyrics.lang || /^en/i.test(lyrics.lang) ? 'abc' : 'doremi', saved = 'chord-notation-' + songNotation;
+  var shown = load('chords') === 'on', notation = load(saved) || songNotation, steps = 0;
 
   // A note: a syllable (DO, Do) or a letter (C), then an optional accidental (#, b, or songbook-style s).
   // "Fadd9"/"Faug" are F chords, not Fa; "sus" is never a sharp.
@@ -92,7 +94,7 @@
     if (!button) return;
     if (button === toggle) save('chords', (shown = !shown) ? 'on' : 'off');
     else if (button.dataset.step) steps = (steps + Number(button.dataset.step)) % 12;
-    else save('chord-notation', notation = button.dataset.notation);
+    else save(saved, notation = button.dataset.notation);
     render();
   });
   window.addEventListener('resize', function () { if (shown) layout(); });

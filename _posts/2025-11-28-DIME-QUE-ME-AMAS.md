@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  Dime que me amas
+lang: es
 date:   2025-11-26 00:00:00 0000
 ep: 4
 # categories: jekyll update

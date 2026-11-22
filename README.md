@@ -32,6 +32,19 @@ Add `--future` to preview a song whose post date is in the future
 `scripts/generate_thumbnails.sh` creates `images/covers/thumbs/*.webp` from the
 covers. It needs ImageMagick (`winget install ImageMagick.ImageMagick`).
 
+## Songs: lyrics and chords
+
+Each song is a post in `_posts/`. In its front matter:
+
+- `lang: es` (or `en`, `ca`, …): the song's language. Chords show in Do Re Mi
+  by default, or in ABC for `en`; visitors can switch.
+- `lyrics: >-` followed by the lyrics, indented, with a blank line between
+  lines and two between sections (no blank line right after `lyrics: >-`).
+- Chords go inline, right before the syllable they fall on: `C[FA]uando vuelva`.
+  Write them in Do Re Mi (`[FA]`, `[SIb]`, `[FA#m]`, songbook-style `[FAsm]`) or
+  ABC (`[F]`, `[Bb]`, `[F#m]`). A line of only chords is an instrumental part:
+  `[SOL RE MIm DO (x2)]`. Songs without chords simply show the lyrics.
+
 ---
 
 # (WIP) Phantom - Jekyll Theme

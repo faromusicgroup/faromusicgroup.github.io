@@ -14,5 +14,5 @@
   </li>
 </ul>
 {% endif %}
-<pre class="lyrics">{{ page.lyrics | replace: '\[', '[' | replace: '[', '<span class="chord">' | replace: ']', '</span>' }}</pre>
+<pre class="lyrics"{% if page.lang %} lang="{{ page.lang }}"{% endif %}>{{ page.lyrics | replace: '\[', '[' | replace: '[', '<span class="chord">' | replace: ']', '</span>' }}</pre>
 {% if page.lyrics contains '[' %}<script src="{{ site.baseurl }}/assets/js/chords.js"></script>{% endif %}

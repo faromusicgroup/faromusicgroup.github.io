@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  Comunión Espiritual
+lang: es
 date:   2025-07-25 00:00:00 0000
 ep: 2
 # categories: jekyll update

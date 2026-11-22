@@ -1,5 +1,4 @@
 <h2>Lyrics</h2>
-{% comment %} Chords are written inline in the lyrics as [Am] (or songbook-style \[LAm]) and stay hidden until shown. {% endcomment %}
 <ul class="song-controls" hidden>
   {% if page.lyrics contains '[' %}
   <li><button type="button" class="button small" id="chords-toggle" aria-pressed="false">Chords</button></li>
@@ -15,17 +14,8 @@
   {% endif %}
   <li><button type="button" class="button small" id="song-pdf">PDF</button></li>
 </ul>
-{% if page.lyrics contains '[' %}
-<dialog class="pdf-dialog" id="pdf-dialog">
-  <form method="dialog">
-    <h3>Download PDF</h3>
-    <button class="button fit special" value="chords" autofocus>With chords</button>
-    <button class="button fit" value="lyrics">Lyrics only</button>
-    <p>Chords print in the key and notation chosen on the page. Then choose &ldquo;Save as PDF&rdquo;.</p>
-  </form>
-</dialog>
-{% endif %}
-<pre class="lyrics"{% if page.lang %} lang="{{ page.lang }}"{% endif %}>{{ page.lyrics | replace: '\[', '[' | replace: '[', '<span class="chord">' | replace: ']', '</span>' }}</pre>
+{% if page.lyrics contains '[' %}{% include pdf-dialog.html title="Download PDF" note="Chords print in the key and notation chosen on the page." songbook=true %}{% endif %}
+{% include lyrics-text.html lyrics=page.lyrics lang=page.lang %}
 {% if page.credit %}<p class="song-credit">{{ page.credit }}</p>{% endif %}
 <script src="{{ site.baseurl }}/assets/js/qrcode-generator-2.0.4.js"></script>
 <script src="{{ site.baseurl }}/assets/js/song.js"></script>

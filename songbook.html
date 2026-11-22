@@ -1,0 +1,67 @@
+---
+layout: about
+title: Songbook
+display-title: Songbook
+permalink: /songbook/
+---
+{% comment %}
+  Every published song, oldest first. On screen: an index and the Download button. Printed (song.js, _songbook.scss):
+  a cover, the contents and each song on its own page. Rebuilt with the site, so new songs and chords appear by themselves.
+{% endcomment %}
+{% assign songs = site.posts | reverse | where_exp: "post", "post.lyrics" %}
+<div class="songbook">
+  <div class="songbook-screen">
+    <p>All our songs, with lyrics and chords, in one PDF.</p>
+    <ul class="song-controls" hidden>
+      <li>
+        <button type="button" class="button small" data-notation="lang">By language</button>
+        <button type="button" class="button small" data-notation="abc">ABC</button>
+        <button type="button" class="button small" data-notation="doremi">Do Re Mi</button>
+      </li>
+      <li><button type="button" class="button small" id="song-pdf">Download songbook</button></li>
+    </ul>
+    <p class="songbook-note" aria-live="polite"
+      data-lang="Chords by language: ABC for songs in English, Do Re Mi for the rest."
+      data-abc="Chords in ABC notation for every song: C, D, E, F, G, A, B."
+      data-doremi="Chords in Do Re Mi notation for every song: Do, Re, Mi, Fa, Sol, La, Si.">Chords by language: ABC for songs in English, Do Re Mi for the rest.</p>
+    <ol class="songbook-index">
+      {% for post in songs %}<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span>{{ post.date | date: "%B %Y" }}</span></li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% include pdf-dialog.html title="Download songbook" note="Chords print in the notation chosen on the page." %}
+
+  <section class="sheet-only songbook-cover">
+    <span class="songbook-logo"><img src="{{ site.baseurl }}/images/logo/logo-white.svg" alt=""></span>
+    <p class="songbook-band">faro music group</p>
+    <p class="songbook-title">Songbook</p>
+    <p class="songbook-edition">{{ site.time | date: "%B %Y" }}</p>
+    <div class="sheet-links">
+      <figure><figcaption>Spotify</figcaption><div data-qr="https://open.spotify.com/artist/{{ site.spotify_username }}"></div></figure>
+      <figure><figcaption>YouTube</figcaption><div data-qr="https://youtube.com/{{ site.youtube_channel }}"></div></figure>
+      <figure><figcaption>WhatsApp</figcaption><div data-qr="https://www.whatsapp.com/channel/{{ site.whatsapp_channel_id }}"></div></figure>
+    </div>
+  </section>
+
+  <section class="sheet-only songbook-contents">
+    <h3>Contents</h3>
+    <ol>
+      {% for post in songs %}<li><a href="#song-{{ forloop.index }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  {% for post in songs %}
+  <article class="sheet-only songbook-song" id="song-{{ forloop.index }}">
+    <header>
+      <span class="songbook-number">{{ forloop.index }}</span>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.date | date: "%B %Y" }}</p>
+    </header>
+    {% include lyrics-text.html lyrics=post.lyrics lang=post.lang %}
+    {% if post.credit %}<p class="song-credit">{{ post.credit }}</p>{% endif %}
+  </article>
+  {% endfor %}
+</div>
+<script src="{{ site.baseurl }}/assets/js/qrcode-generator-2.0.4.js"></script>
+<script src="{{ site.baseurl }}/assets/js/song.js"></script>

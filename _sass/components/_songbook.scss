@@ -1,0 +1,136 @@
+/* Songbook (songbook.html): an index on screen; printed, a cover, the contents and every song (see _sheet.scss) */
+
+	.songbook-index span,
+	.songbook-note {
+		color: _palette(accent1);
+		font-size: 0.8em;
+	}
+
+	body.printing {
+		.title-container,
+		.songbook-screen {
+			display: none !important;
+		}
+
+		.sheet-only {
+			display: block;
+		}
+
+		// Page by page, not the single song sheet's one-page column.
+		#main > .inner:has(.songbook) {
+			display: block;
+			min-height: 0;
+		}
+
+		.songbook {
+			a {
+				border-bottom: 0;
+				color: #000 !important;
+				text-decoration: none;
+			}
+
+			h3 {
+				margin: 0;
+				color: #000;
+				font-family: inherit;
+				font-size: 22pt;
+				font-weight: 300;
+				letter-spacing: 0;
+				line-height: 1.2;
+			}
+		}
+
+		.songbook-cover {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-height: 265mm; // the first page (A4 minus the sheet's margins)
+			text-align: center;
+			break-after: page;
+
+			.sheet-links {
+				margin-top: auto;
+			}
+		}
+
+		.songbook-logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 34mm;
+			height: 34mm;
+			margin-top: 50mm;
+			border-radius: 50%;
+			background: #000;
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+
+			img {
+				height: 20mm;
+			}
+		}
+
+		.songbook-band {
+			margin: 12mm 0 0;
+			font-size: 28pt;
+			font-weight: 300;
+		}
+
+		.songbook-title {
+			margin: 3mm 0 0;
+			font-size: 12pt;
+			letter-spacing: 0.4em;
+			text-transform: uppercase;
+		}
+
+		.songbook-edition {
+			margin: 10mm 0 0;
+			font-size: 10pt;
+		}
+
+		.songbook-contents {
+			break-after: page;
+			padding-top: 6mm;
+
+			h3 {
+				margin-bottom: 10mm;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			ol {
+				max-width: 110mm;
+				margin: 0 auto;
+				padding-left: 8mm;
+				font-size: 12pt;
+				line-height: 2;
+			}
+		}
+
+		.songbook-song {
+			+ .songbook-song {
+				break-before: page;
+			}
+
+			header {
+				text-align: center;
+			}
+
+			h3 {
+				font-size: 24pt;
+				text-transform: uppercase;
+			}
+
+			header p {
+				margin: 1mm 0 0;
+				font-size: 10pt;
+			}
+		}
+
+		.songbook-number {
+			display: block;
+			margin-bottom: 1mm;
+			color: #888;
+			font-size: 11pt;
+		}
+	}

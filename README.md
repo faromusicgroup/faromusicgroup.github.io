@@ -52,6 +52,10 @@ The **PDF** button prints the song as a chord sheet (`_includes/song-sheet.html`
 (in the key and notation chosen on the page) or lyrics only. Visitors then
 choose "Save as PDF".
 
+The **Songbook** page (`songbook.html`, in the menu) prints every published song,
+oldest first, with a cover and contents. It is rebuilt with the site, so new
+songs and chords appear in it automatically.
+
 ---
 
 # (WIP) Phantom - Jekyll Theme

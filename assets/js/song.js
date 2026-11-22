@@ -1,23 +1,15 @@
-// Song pages (_includes/lyrics.html). Chords, written inline in the lyrics as [Am] or [LAm]: show/hide, transpose,
-// and ABC / Do Re Mi notation, which defaults to the song's language (`lang` in its front matter): ABC for English,
-// Do Re Mi otherwise. Show/hide, and a visitor's notation per default, are remembered.
-// The PDF button prints the song sheet (_includes/song-sheet.html), as shown on screen: transposed, in either notation.
+// Song pages (_includes/lyrics.html) and the songbook (songbook.html). Chords are written inline in the lyrics as [Am]
+// or [LAm] (_includes/lyrics-text.html). Song pages: show/hide, transpose, and ABC / Do Re Mi notation, which defaults
+// to the song's language (`lang` in its front matter): ABC for English, Do Re Mi otherwise; show/hide, and a visitor's
+// notation per default, are remembered. The songbook: every song in its language's notation, or all in one.
+// The PDF button prints the sheet (_sass/components/_sheet.scss), with chords or lyrics only (#pdf-dialog).
 (function () {
-  var lyrics = document.querySelector('.lyrics');
   var controls = document.querySelector('.song-controls');
-  var toggle = document.getElementById('chords-toggle'); // only on songs with chords
-  // A line of only chords (an instrumental part) shows and hides with the chords, with the blank line after it.
-  // A word with chords never breaks at a chord when a long line wraps, and its chords wrap along with it.
-  lyrics.innerHTML = lyrics.innerHTML
-    .replace(/^(?:[ \t]*<span class="chord">[^<]*<\/span>)+[ \t]*(?:\n|$)\n*/gm, '<span class="chord-line">$&</span>')
-    .replace(/(?:[^\s<>]|<span class="chord">[^<]*<\/span>)+/g, function (word) {
-      var chordsOnly = /^(?:<span class="chord">[^<]*<\/span>)+$/.test(word);
-      return word.indexOf('<span') < 0 || chordsOnly ? word : '<span class="chord-word">' + word + '</span>';
-    });
-  var chords = [].slice.call(lyrics.querySelectorAll('.chord'));
-  var original = chords.map(function (chord) { return chord.textContent; });
-  var songNotation = !lyrics.lang || /^en/i.test(lyrics.lang) ? 'abc' : 'doremi', saved = 'chord-notation-' + songNotation;
-  var shown = !!toggle && load('chords') === 'on', notation = load(saved) || songNotation, steps = 0;
+  var book = !!document.querySelector('.songbook');
+  var toggle = document.getElementById('chords-toggle'); // only on song pages with chords
+  var stepsLabel = document.getElementById('chord-steps');
+  var notationNote = document.querySelector('[data-lang][data-abc][data-doremi]'); // the songbook's note on notation
+  var dialog = document.getElementById('pdf-dialog');
 
   // A note: a syllable (DO, Do) or a letter (C), then an optional accidental (#, b, or songbook-style s).
   // "Fadd9"/"Faug" are F chords, not Fa; "sus" is never a sharp.
@@ -32,41 +24,74 @@
     return { letter: i, pitch: (NATURAL[i] + (accidental === 'b' ? 11 : accidental ? 1 : 0)) % 12 };
   }
 
-  // The song's key is its first chord.
-  var key = { letter: 0, pitch: 0, minor: false };
-  original.some(function (text) {
-    var m = new RegExp(NOTE.source).exec(text);
-    if (m) {
-      key = parse(m[1], m[2], m[3]);
-      key.minor = /^m(?!aj)/.test(text.slice(m.index + m[0].length));
-    }
-    return m;
-  });
+  // One song's lyrics, prepared once. A line of only chords (an instrumental part) shows and hides with the chords,
+  // with the blank line after it; a word with chords never breaks at a chord when a long line wraps, and its chords
+  // wrap along with it. The song's key is its first chord, and its default notation comes from its language.
+  function Song(lyrics) {
+    lyrics.innerHTML = lyrics.innerHTML
+      .replace(/^(?:[ \t]*<span class="chord">[^<]*<\/span>)+[ \t]*(?:\n|$)\n*/gm, '<span class="chord-line">$&</span>')
+      .replace(/(?:[^\s<>]|<span class="chord">[^<]*<\/span>)+/g, function (word) {
+        var chordsOnly = /^(?:<span class="chord">[^<]*<\/span>)+$/.test(word);
+        return word.indexOf('<span') < 0 || chordsOnly ? word : '<span class="chord-word">' + word + '</span>';
+      });
+    var chords = [].slice.call(lyrics.querySelectorAll('.chord'));
+    var song = {
+      lyrics: lyrics,
+      chords: chords,
+      original: chords.map(function (chord) { return chord.textContent; }),
+      notation: !lyrics.lang || /^en/i.test(lyrics.lang) ? 'abc' : 'doremi',
+      key: { letter: 0, pitch: 0, minor: false }
+    };
+    song.original.some(function (text) {
+      var m = new RegExp(NOTE.source).exec(text);
+      if (m) {
+        song.key = parse(m[1], m[2], m[3]);
+        song.key.minor = /^m(?!aj)/.test(text.slice(m.index + m[0].length));
+      }
+      return m;
+    });
+    return song;
+  }
 
-  function spell(letter, p) {
+  var songs = [].map.call(document.querySelectorAll('.lyrics'), Song);
+  var saved = book ? null : 'chord-notation-' + songs[0].notation; // song pages remember a choice per default
+  var shown = book || (!!toggle && load('chords') === 'on');
+  var notation = book ? 'lang' : load(saved) || songs[0].notation, steps = 0; // 'lang': each song its own default
+
+  function spell(letter, p, as) {
     var accidental = (p - NATURAL[letter] + 18) % 12 - 6;
     var name = LETTERS[letter] + (accidental > 0 ? '#' : accidental < 0 ? 'b' : '');
     if (Math.abs(accidental) > 1 || /^(E#|B#|Cb|Fb)$/.test(name)) name = (accidental > 0 ? SHARPS : FLATS)[p];
-    return notation === 'doremi' ? SYLLABLES[LETTERS.indexOf(name[0])] + name.slice(1) : name;
+    return as === 'doremi' ? SYLLABLES[LETTERS.indexOf(name[0])] + name.slice(1) : name;
   }
 
   // Every note's letter moves as much as the key's, so chords keep their spelling (E/G# in C → F#/A# in D),
   // and the new key is spelled the usual way (Bb, not A#).
-  function render() {
-    if (!toggle) return;
-    var tonic = TONIC[key.minor ? 'minor' : 'major'][(key.pitch + steps + 12) % 12];
-    var shift = LETTERS.indexOf(tonic) - key.letter + 7;
-    chords.forEach(function (chord, i) {
-      chord.textContent = original[i].replace(NOTE, function (m, syllable, letter, accidental) {
+  function spellChords(song) {
+    var as = notation === 'lang' ? song.notation : notation;
+    var tonic = TONIC[song.key.minor ? 'minor' : 'major'][(song.key.pitch + steps + 12) % 12];
+    var shift = LETTERS.indexOf(tonic) - song.key.letter + 7;
+    song.chords.forEach(function (chord, i) {
+      chord.textContent = song.original[i].replace(NOTE, function (m, syllable, letter, accidental) {
         var note = parse(syllable, letter, accidental);
-        return spell((note.letter + shift) % 7, (note.pitch + steps + 12) % 12);
+        return spell((note.letter + shift) % 7, (note.pitch + steps + 12) % 12, as);
       });
     });
-    document.getElementById('chord-steps').textContent = steps > 0 ? '+' + steps : steps < 0 ? '−' + -steps : '0';
-    [lyrics, controls].forEach(function (el) { el.classList.toggle('show-chords', shown); });
-    press(toggle, shown);
+  }
+
+  function showChords(on) {
+    songs.forEach(function (song) { song.lyrics.classList.toggle('show-chords', on); });
+  }
+
+  function render() {
+    songs.forEach(spellChords);
+    showChords(shown);
+    controls.classList.toggle('show-chords', shown);
+    if (stepsLabel) stepsLabel.textContent = steps > 0 ? '+' + steps : steps < 0 ? '−' + -steps : '0';
+    if (toggle) press(toggle, shown);
     controls.querySelectorAll('[data-notation]').forEach(function (b) { press(b, b.dataset.notation === notation); });
-    if (shown) layout();
+    if (notationNote) notationNote.textContent = notationNote.dataset[notation];
+    if (shown && !book) layout(); // the songbook's songs are only laid out when printed
   }
 
   function press(button, on) {
@@ -74,29 +99,37 @@
     button.setAttribute('aria-pressed', on);
   }
 
-  // Chords sit above the text, so two close together could overlap: push the later one right.
+  // Chords sit above the text, so two close together could overlap: push the later one right. Every chord is
+  // measured first and only then moved (moving one never moves another), so even the whole songbook takes one pass.
   function layout() {
-    var gap = parseFloat(getComputedStyle(lyrics).fontSize) / 2, range = document.createRange(), prev;
-    chords.forEach(function (chord) {
-      chord.style.left = '';
+    var range = document.createRange(), chords = [], prev;
+    songs.forEach(function (song) {
+      if (song.lyrics.classList.contains('show-chords')) chords.push.apply(chords, song.chords);
+    });
+    if (!chords.length) return;
+    var gap = parseFloat(getComputedStyle(songs[0].lyrics).fontSize) / 2;
+    chords.forEach(function (chord) { chord.style.left = ''; });
+    var boxes = chords.map(function (chord) {
       range.selectNodeContents(chord); // the chord's text, which overflows its zero-width box
-      var box = range.getBoundingClientRect();
-      if (prev && Math.abs(box.top - prev.top) < 1 && box.left < prev.right + gap) {
-        chord.style.left = prev.right + gap - box.left + 'px';
-        box = range.getBoundingClientRect();
+      return range.getBoundingClientRect();
+    });
+    boxes.forEach(function (box, i) {
+      var left = box.left;
+      if (prev && Math.abs(box.top - prev.top) < 1 && left < prev.right + gap) {
+        left = prev.right + gap;
+        chords[i].style.left = left - box.left + 'px';
       }
-      prev = box;
+      prev = { top: box.top, right: left + box.width };
     });
   }
 
   function load(name) { try { return localStorage.getItem(name); } catch (e) { return null; } }
   function save(name, value) { try { localStorage.setItem(name, value); } catch (e) {} }
 
-  // The song sheet: its font (Jost), QR codes for the song's links, and the `printing` layout (_sheet.scss), which is
-  // set on screen too while printing so the chords are measured and placed for the printed page.
-  // On songs with chords the PDF button asks "with chords or lyrics only?"; the browser's own print prints the page
-  // as shown (printChords null).
-  var dialog = document.getElementById('pdf-dialog'), printChords = null;
+  // The sheet: its font (Jost), QR codes for the links, and the `printing` layout (_sheet.scss), which is set on
+  // screen too while printing so the chords are measured and placed for the printed page. With songs that have
+  // chords the PDF button asks "with chords or lyrics only?"; the browser's own print uses the page as shown.
+  var printChords = null;
 
   function printSheet(withChords) {
     printChords = withChords;
@@ -118,14 +151,14 @@
   window.addEventListener('beforeprint', function () {
     document.body.classList.add('printing');
     drawQRCodes();
-    if (printChords !== null) lyrics.classList.toggle('show-chords', printChords);
-    if (lyrics.classList.contains('show-chords')) layout();
+    showChords(printChords === null ? shown : printChords);
+    layout();
   });
   window.addEventListener('afterprint', function () {
     document.body.classList.remove('printing');
     printChords = null;
-    lyrics.classList.toggle('show-chords', shown); // back to what the page showed
-    if (shown) layout();
+    showChords(shown); // back to what the page showed
+    if (shown && !book) layout();
   });
 
   if (dialog) {
@@ -142,10 +175,13 @@
     if (button.id === 'song-pdf') return dialog && dialog.showModal ? dialog.showModal() : printSheet(null);
     if (button === toggle) save('chords', (shown = !shown) ? 'on' : 'off');
     else if (button.dataset.step) steps = (steps + Number(button.dataset.step)) % 12;
-    else save(saved, notation = button.dataset.notation);
+    else if (button.dataset.notation) {
+      notation = button.dataset.notation;
+      if (saved) save(saved, notation);
+    }
     render();
   });
-  window.addEventListener('resize', function () { if (shown) layout(); });
+  window.addEventListener('resize', function () { if (shown && !book) layout(); });
   controls.hidden = false;
   render();
 })();

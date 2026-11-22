@@ -20,6 +20,9 @@ Síguenos en 📺 Youtube:
 Síguenos en 🎧 Spotify:
 &nbsp;&nbsp;&nbsp;&nbsp;[Spotify faro music group](https://open.spotify.com/artist/1FEz8bE9v7vHOsUh70NLjM)
 
+Descarga el 📖 cancionero, con letras y acordes:  
+&nbsp;&nbsp;&nbsp;&nbsp;[Cancionero faro music group]({{ site.baseurl }}/songbook/)
+
 <!-- <a href="https://www.whatsapp.com/channel/{{ page.whatsapp-channel-id }}" class="button special" style="font-size: 0.75em;" target="_blank">
     <span class="fa-layers fa-fw">
         <i class="fab fa-whatsapp fa-lg"></i>

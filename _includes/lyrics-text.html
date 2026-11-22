@@ -1,0 +1,2 @@
+{% comment %} A song's lyrics with its inline chords ([Am], or songbook-style \[LAm]) as hidden spans: include.lyrics, include.lang {% endcomment %}
+<pre class="lyrics"{% if include.lang %} lang="{{ include.lang }}"{% endif %}>{{ include.lyrics | replace: '\[', '[' | replace: '[', '<span class="chord">' | replace: ']', '</span>' }}</pre>

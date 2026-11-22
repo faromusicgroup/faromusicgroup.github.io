@@ -1,0 +1,10 @@
+{% comment %} "With chords or lyrics only?" before printing (song.js): include.title, include.note, include.songbook (link to it) {% endcomment %}
+<dialog class="pdf-dialog" id="pdf-dialog">
+  <form method="dialog">
+    <h3>{{ include.title }}</h3>
+    <button class="button fit special" value="chords" autofocus>With chords</button>
+    <button class="button fit" value="lyrics">Lyrics only</button>
+    <p>{{ include.note }} Then choose &ldquo;Save as PDF&rdquo;.</p>
+    {% if include.songbook %}<p><a href="{{ site.baseurl }}/songbook/">Download the full songbook</a></p>{% endif %}
+  </form>
+</dialog>

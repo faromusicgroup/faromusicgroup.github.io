@@ -4,6 +4,11 @@
   var lyrics = document.querySelector('.lyrics');
   var controls = document.querySelector('.chord-controls');
   var toggle = document.getElementById('chords-toggle');
+  // A line of only chords (an instrumental part) shows and hides with the chords, with the blank line after it.
+  // A chord starting a word stays with that word when a long line wraps (otherwise it is left at the line's end).
+  lyrics.innerHTML = lyrics.innerHTML
+    .replace(/^(?:[ \t]*<span class="chord">[^<]*<\/span>)+[ \t]*(?:\n|$)\n*/gm, '<span class="chord-line">$&</span>')
+    .replace(/ (<span class="chord">[^<]*<\/span>[^\s<]*)/g, ' <span class="chord-word">$1</span>');
   var chords = [].slice.call(lyrics.querySelectorAll('.chord'));
   var original = chords.map(function (chord) { return chord.textContent; });
   var shown = load('chords') === 'on', notation = load('chord-notation') || 'abc', steps = 0;

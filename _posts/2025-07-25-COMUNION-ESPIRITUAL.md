@@ -15,58 +15,57 @@ spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large
 youtube-link: https://youtu.be/ci8lvbXk55U
 quote: "_No permitas que jamás me aparte de Ti_"
-lyrics:
+lyrics: >-
+    Creo [SOL]Jesús mío,
 
-    Creo Jesús mío,
+    que estáis [DO]realmente presente
 
-    que estáis realmente presente 
-    
-    en el Santísimo Sacramento del altar. 
-
-    
-    Os amo sobre todas las cosas 
-    
-    y deseo recibiros en mi alma. 
+    en el [MIm]Santísimo Sacramento del [DO]altar.
 
 
-    Pero como ahora no puedo recibiros ya, 
-    
-    venid a mí al menos espiritualmente, 
-    
-    a mi corazón y como si ya os hubiese recibido 
-    
-    os abrazo y me uno del todo a Ti
+    Os amo [DO]sobre todas las cosas
 
-    
-    Señor, no permitas que jamás me aparte de Ti, me aparte de Ti 
+    y deseo [RE]recibiros en mi alma.
 
-    
-    Creo Jesús mío, 
-    
-    que estáis realmente presente 
-    
-    en el Santísimo Sacramento del altar. 
 
-    
-    Os amo sobre todas las cosas 
-    
-    y deseo recibiros en mi alma. 
+    Pero como [MIm]ahora no puedo recibiros [DO]ya,
 
-    
-    Pero como ahora no puedo recibiros ya, 
-    
-    venid a mí al menos espiritualmente, 
-    
-    a mi corazón y como si ya os hubiese recibido 
-    
-    os abrazo y me uno del todo a Ti
+    ve[MIm]nid a [DO]mí al menos [SOL]espiritual[SIm7]mente,
 
-    
-    Señor, no permitas que jamás me aparte de Ti, me aparte de Ti 
+    a [MIm]mi cora[DO]zón y como si [SOL]ya os hubiese [SIm7]recibido
 
-    
-    Señor, no permitas que jamás, 
-    
-    Señor, no permitas que jamás me aparte de Ti.
+    os [MIm]abra[DO]zo y [SOL]me uno del to[SIm7]do a Ti
+
+
+    [MIm]Señor, no [DO]permitas que [RE]jamás me aparte [MIm]de [DO]Ti,[SOL][SIm7] me aparte [MIm]de [DO]Ti[RE]
+
+
+    Creo [SOL]Jesús mío,
+
+    que estáis [DO]realmente presente
+
+    en el [MIm]Santísimo Sacramento del [DO]altar.
+
+
+    Os amo [DO]sobre todas las cosas
+
+    y deseo [RE]recibiros en mi alma.
+
+
+    Pero como [MIm]ahora no puedo recibiros [DO]ya,
+
+    ve[MIm]nid a [DO]mí al menos [SOL]espiritual[SIm7]mente,
+
+    a [MIm]mi cora[DO]zón y como si [SOL]ya os hubiese [SIm7]recibido
+
+    os [MIm]abra[DO]zo y [SOL]me uno del to[SIm7]do a Ti
+
+
+    [MIm]Señor, no [DO]permitas que [RE]jamás me aparte [MIm]de [DO]Ti,[SOL][SIm7] me aparte [MIm]de [DO]Ti[RE]
+
+
+    [DO]Señor, no permitas [RE]que jamás,
+
+    [DO]Señor, no permitas [RE]que jamás me a[SOL]parte [SIm7]de [DO]Ti.[SOL][SIm7][DO]
 ---
 

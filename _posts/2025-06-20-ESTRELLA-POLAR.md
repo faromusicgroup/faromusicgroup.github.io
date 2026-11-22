@@ -14,137 +14,137 @@ spotify-add-color: false # options: true (color of the player), false (greyish)
 spotify-size: small # options: small, large
 youtube-link: https://youtu.be/EGgzhzkpfvg
 quote: "_Desde el cielo serás_"
-lyrics:
-    Un nuevo día que comienza
+lyrics: >-
+    [MI]Un nuevo día que co[LA]mienza
 
-    De la mano del Apóstol caminar
+    [DOsm]De la mano del A[SI]póstol caminar
 
-    De esta tierra peregrinos
+    [MI]De esta tierra pere[LA]grinos
 
-    En busca de la única verdad.
+    En [DOsm]busca de la única ver[SI]dad.
 
 
-    Cuando el sendero se hace largo, caigo
+    [MI]Cuando el sendero se hace [LA]largo, caigo
 
-    Avanzo a tientas en la oscuridad
+    [DOsm]Avanzo a tientas en la os[SI]curidad
 
-    Pero Tu cruz que brilla a nuestro lado
+    [MI]Pero Tu cruz que brilla a [LA]nuestro lado
 
 
-    Amor hasta el extremo
+    [FAsm]Amor hasta el extremo
 
-    Es la luz de este misterio
+    Es la [SOLsm7]luz de este misterio
 
-    Es nuestra estrella polar
+    [LA]Es nuestra estrella po[SI]lar
 
 
-    QUIERO VOLVER A DESPERTAR
+    QUIERO VOL[LA]VER A DESPER[MI]TAR
 
-    CUANTO TIEMPO HE PERDIDO SIN SABER
+    [DOsm]CUANTO TIEMPO HE PER[SI]DIDO SIN SA[LA]BER
 
-    QUE TÚ AQUÍ ESTÁS
+    QUE TÚ AQUÍ ES[MI]TÁS
 
-    TODOS LOS DÍAS HASTA EL FINAL
+    [DOsm]TODOS LOS DÍAS HAS[SI]TA EL FINAL
 
-    TU CRUZ ES ROCA FIRME
+    [MI]TU CRUZ ES [LA]ROCA FIRME
 
-    ES EL FUEGO QUE NO SE APAGA
+    [DOsm]ES EL FUEGO QUE [SI]NO SE APAGA
 
-    GUIA TU PUEBLO QUE CAMINA HACIA TI
+    [MI]GUIA TU [LA]PUEBLO QUE CA[DOsm]MINA HACIA [SI]TI
 
-    LUZ DE AYER Y HOY
+    [LA]LUZ DE AYER Y [MI]HOY
 
-    DESDE EL CIELO SERÁS
+    [DOsm]DESDE EL CIELO SE[SI]RÁS
 
-    ESTRELLA POLAR
+    [FAsm]ESTRE[SOLsm7]LLA PO[LA SI]LAR
 
 
-    En el silencio encontrarte
+    [MI]En el silencio encon[LA]trarte
 
-    Todas las cosas me hablan de Ti
+    [DOsm]Todas las cosas me [SI]hablan de Ti
 
-    Tu vives en lo profundo
+    [MI]Tu vives en lo pro[LA]fundo
 
-    Como un niño aprenderte a ver.
+    [DOsm]Como un niño aprenderte a [SI]ver.
 
 
-    Dar lo que tienes, eso es lo más grande
+    [MI]Dar lo que tienes, eso es [LA]lo más grande
 
-    Todo el esfuerzo su fruto dará
+    [DOsm]Todo el esfuerzo su fru[SI]to dará
 
-    Entre caídas, entre mil tropiezos
+    [MI]Entre caídas, entre [LA]mil tropiezos
 
-    Amor hasta el extremo
+    [FAsm]Amor hasta el extremo
 
-    Es la luz de este misterio
+    Es la [SOLsm7]luz de este misterio
 
-    Es nuestra estrella polar
+    [LA]Es nuestra estrella po[SI]lar
 
 
-    QUIERO VOLVER A DESPERTAR
+    QUIERO VOL[LA]VER A DESPER[MI]TAR
 
-    CUANTO TIEMPO HE PERDIDO SIN SABER
+    [DOsm]CUANTO TIEMPO HE PER[SI]DIDO SIN SA[LA]BER
 
-    QUE TÚ AQUÍ ESTÁS
- 
-    TODOS LOS DÍAS HASTA EL FINAL
+    QUE TÚ AQUÍ ES[MI]TÁS
 
-    TU CRUZ ES ROCA FIRME
+    [DOsm]TODOS LOS DÍAS HAS[SI]TA EL FINAL
 
-    ES EL FUEGO QUE NO SE APAGA
+    [MI]TU CRUZ ES [LA]ROCA FIRME
 
-    GUIA TU PUEBLO QUE CAMINA HACIA TI
+    [DOsm]ES EL FUEGO QUE [SI]NO SE APAGA
 
-    LUZ DE AYER Y HOY
+    [MI]GUIA TU [LA]PUEBLO QUE CA[DOsm]MINA HACIA [SI]TI
 
-    DESDE EL CIELO SERÁS
+    [LA]LUZ DE AYER Y [MI]HOY
 
+    [DOsm]DESDE EL CIELO SE[SI]RÁS
 
-    OH, OH, OH, OHHH (x4)
-    
-    LUZ DE AYER Y HOY
-    
-    DESDE EL CIELO SERÁS
 
+    [LA]OH, [SI]OH, [DOsm]OH, [SI]OHHH (x4)
 
-    ESTRELLA POLAR
+    [LA]LUZ DE AYER Y [MI]HOY
 
+    [DOsm]DESDE EL CIELO SE[SI]RÁS
 
-    Oh, Cruz bendita brilla siempre (x4)
 
+    [FAsm]ESTRE[SOLsm7]LLA PO[LA SI]LAR
 
-    Cuando el sendero se hace largo, caigo
 
-    Avanzo a tientas en la oscuridad
+    [LA]Oh, Cruz ben[MI]dita brilla [SOLsm7 DOsm]siempre (x4)
 
-    Pero Tu cruz que brilla a nuestro lado
 
+    [MI]Cuando el sendero se hace [LA]largo, caigo
 
-    Amor hasta el extremo
+    [DOsm]Avanzo a tientas en la os[SI]curidad
 
-    Es la luz de este misterio
+    [MI]Pero Tu cruz que brilla a [LA]nuestro lado
 
-    Es nuestra estrella polar
 
+    [FAsm]Amor hasta el extremo
 
-    QUIERO VOLVER A DESPERTAR
+    Es la [SOLsm7]luz de este misterio
 
-    CUANTO TIEMPO HE PERDIDO SIN SABER
+    [LA]Es nuestra estrella po[RE DOs]lar
 
-    QUE TÚ AQUÍ ESTÁS
 
-    TODOS LOS DÍAS HASTA EL FINAL
-    
-    TU CRUZ ES ROCA FIRME
+    QUIERO VOL[SI]VER A DESPER[FAs]TAR
 
-    ES EL FUEGO QUE NO SE APAGA
+    [MIbm]CUANTO TIEMPO HE PER[DOs]DIDO SIN SA[SI]BER
 
-    GUIA TU PUEBLO QUE CAMINA HACIA TI
+    QUE TÚ AQUÍ E[FAs]STÁS
 
-    LUZ DE AYER Y HOY
+    [MIbm]TODOS LOS DÍAS HAS[DOs]TA EL FINAL
 
-    DESDE EL CIELO SERÁS
-    
-    ESTRELLA POLAR
+    [FAs]TU CRUZ ES [SI]ROCA FIRME
+
+    [MIbm]ES EL FUEGO QUE [DOs]NO SE APAGA
+
+    [FAs]GUIA TU [SI]PUEBLO QUE CA[MIbm]MINA HACIA [DOs]TI
+
+    [SI]LUZ DE AYER Y [FAs]HOY
+
+    [MIbm]DESDE EL CIELO SE[DOs]RÁS
+
+    [SOLsm]ESTRE[SIbm7]LLA PO[SI DOs]LAR
 ---
 

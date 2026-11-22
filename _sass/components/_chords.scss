@@ -25,12 +25,26 @@
 	.lyrics {
 		white-space: pre-wrap;
 
-		.chord {
+		.chord,
+		.chord-line {
 			display: none;
+		}
+
+		.chord-word {
+			white-space: nowrap;
 		}
 
 		&.show-chords {
 			line-height: 3;
+
+			// Room on small phones for a chord that hangs past the last word of a wrapped line.
+			@include breakpoint(xsmall) {
+				padding-right: 2em;
+			}
+
+			.chord-line {
+				display: inline;
+			}
 
 			// Taken out of the text flow and lifted above the syllable it precedes.
 			.chord {
@@ -40,6 +54,12 @@
 				color: _palette(accent2);
 				font-weight: _font(weight-bold-alt);
 				user-select: none;
+			}
+
+			// An instrumental line is all chords: they sit in the line itself.
+			.chord-line .chord {
+				position: static;
+				margin-top: 0;
 			}
 		}
 	}

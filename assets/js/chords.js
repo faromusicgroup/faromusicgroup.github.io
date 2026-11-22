@@ -5,10 +5,12 @@
   var controls = document.querySelector('.chord-controls');
   var toggle = document.getElementById('chords-toggle');
   // A line of only chords (an instrumental part) shows and hides with the chords, with the blank line after it.
-  // A chord starting a word stays with that word when a long line wraps (otherwise it is left at the line's end).
+  // A word with chords never breaks at a chord when a long line wraps, and its chords wrap along with it.
   lyrics.innerHTML = lyrics.innerHTML
     .replace(/^(?:[ \t]*<span class="chord">[^<]*<\/span>)+[ \t]*(?:\n|$)\n*/gm, '<span class="chord-line">$&</span>')
-    .replace(/ (<span class="chord">[^<]*<\/span>[^\s<]*)/g, ' <span class="chord-word">$1</span>');
+    .replace(/[^\s<>]*(?:<span class="chord">[^<]*<\/span>)+[^\s<]*/g, function (word) {
+      return /^(?:<span class="chord">[^<]*<\/span>)+$/.test(word) ? word : '<span class="chord-word">' + word + '</span>';
+    });
   var chords = [].slice.call(lyrics.querySelectorAll('.chord'));
   var original = chords.map(function (chord) { return chord.textContent; });
   var shown = load('chords') === 'on', notation = load('chord-notation') || 'abc', steps = 0;
@@ -67,15 +69,16 @@
     button.setAttribute('aria-pressed', on);
   }
 
-  // Chords float above the text, so two close together can overlap: push the later one right.
+  // Chords sit above the text, so two close together could overlap: push the later one right.
   function layout() {
-    var gap = parseFloat(getComputedStyle(lyrics).fontSize) / 2, prev;
+    var gap = parseFloat(getComputedStyle(lyrics).fontSize) / 2, range = document.createRange(), prev;
     chords.forEach(function (chord) {
-      chord.style.marginLeft = '';
-      var box = chord.getBoundingClientRect();
+      chord.style.left = '';
+      range.selectNodeContents(chord); // the chord's text, which overflows its zero-width box
+      var box = range.getBoundingClientRect();
       if (prev && Math.abs(box.top - prev.top) < 1 && box.left < prev.right + gap) {
-        chord.style.marginLeft = prev.right + gap - box.left + 'px';
-        box = chord.getBoundingClientRect();
+        chord.style.left = prev.right + gap - box.left + 'px';
+        box = range.getBoundingClientRect();
       }
       prev = box;
     });

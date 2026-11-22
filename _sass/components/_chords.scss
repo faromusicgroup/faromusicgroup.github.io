@@ -35,8 +35,6 @@
 		}
 
 		&.show-chords {
-			line-height: 3;
-
 			// Room on small phones for a chord that hangs past the last word of a wrapped line.
 			@include breakpoint(xsmall) {
 				padding-right: 2em;
@@ -46,11 +44,14 @@
 				display: inline;
 			}
 
-			// Taken out of the text flow and lifted above the syllable it precedes.
+			// A zero-width box raised above the syllable it precedes: only lines with chords get taller.
 			.chord {
-				display: inline;
-				position: absolute;
-				margin-top: -1.15em;
+				display: inline-block;
+				position: relative;
+				width: 0;
+				line-height: 1;
+				vertical-align: 1.25em;
+				white-space: nowrap;
 				color: _palette(accent2);
 				font-weight: _font(weight-bold-alt);
 				user-select: none;
@@ -58,8 +59,9 @@
 
 			// An instrumental line is all chords: they sit in the line itself.
 			.chord-line .chord {
-				position: static;
-				margin-top: 0;
+				width: auto;
+				vertical-align: baseline;
+				white-space: normal;
 			}
 		}
 	}

@@ -29,7 +29,6 @@ lyrics: >-
     Transfórma[RE]me, [SOL]ser de Ti tes[RE]tigo
 
 
-
     [DO]QUE NO ME OL[RE]VIDE NUNCA [SOL]YO DE TI[MIm], [LAm]Y
 
     QUE SI [RE]CAIGO SEPA [SOL]QUE ESTÁS A[MIm]HÍ[DO]
@@ -39,11 +38,9 @@ lyrics: >-
     SOL[RE]AMENTE JUNTO A [SOL]TI.
 
 
-
     [SOL RE MIm SIm DO SOL DO RE (x2)]
 
     [SIm MIm DO RE SOL]
-
 
 
     [SOL]Eres sentido que llena mi corazón,
@@ -59,7 +56,6 @@ lyrics: >-
     [MIm]Y desde la c[RE]ruz, Tú [SOL]eres quien me i[RE]nspira
 
 
-
     [DO]QUE NO ME OL[RE]VIDE NUNCA [SOL]YO DE TI[MIm], [LAm]Y
 
     QUE SI [RE]CAIGO SEPA [SOL]QUE ESTÁS A[MIm]HÍ[DO]
@@ -69,11 +65,9 @@ lyrics: >-
     SOL[RE]AMENTE JUNTO A [SOL]TI.
 
 
-
     [SOL RE MIm SIm DO SOL DO RE (x2)]
 
     [MI FA SIb FA SOLm FA REm MIb SIb MIb FA REm SOLm MIb FA SIb]
-
 
 
     [MIb]Solo [FA]deseo estar [SIb]a[SOLm]quí

@@ -94,7 +94,6 @@ lyrics:
     el Artista de mi luz
 
 
-
     Y DEJAR QUE EL COLOR DEL CAMINO RESULTE EN TU HONOR, 
 
     SI ES QUE EN TI MI SEÑOR, TODO COBRA UN SENTIDO EN TU AMOR, 

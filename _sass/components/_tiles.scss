@@ -22,7 +22,9 @@
 				'opacity #{$duration} #{$ease}'
 			));
 			position: relative;
-			width: calc(100% / 3 - #{$gutter * 1});
+			// 4 per row, shrinking with the page; then 2 (medium, small) and 1 (xsmall): never 3,
+			// so each EP's four songs always fill whole rows.
+			width: calc(100% / 4 - #{$gutter * 1});
 			margin: $gutter 0 0 $gutter;
 
 			> .image {
@@ -219,7 +221,7 @@
 			margin: ($gutter * -1) 0 0 ($gutter * -1);
 
 			article {
-				width: calc(100% / 3 - #{$gutter * 1});
+				width: calc(100% / 4 - #{$gutter * 1});
 				margin: $gutter 0 0 $gutter;
 			}
 		}

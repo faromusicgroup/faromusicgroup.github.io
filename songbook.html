@@ -12,14 +12,15 @@ permalink: /songbook/
 <div class="songbook">
   <div class="songbook-screen">
     <p>All our songs, with lyrics and chords, in one PDF.</p>
-    <ul class="song-controls" hidden>
-      <li>
-        <button type="button" class="button small" data-notation="lang">By language</button>
-        <button type="button" class="button small" data-notation="abc">ABC</button>
-        <button type="button" class="button small" data-notation="doremi">Do Re Mi</button>
-      </li>
-      <li><button type="button" class="button small" id="song-pdf">Download songbook</button></li>
-    </ul>
+    <div class="song-controls" hidden>
+      <span class="control-group">
+        <span class="control-label">Notation</span>
+        <span class="segmented" role="group" aria-label="Notation">
+          <button type="button" class="button small" data-notation="lang">By language</button><button type="button" class="button small" data-notation="abc">ABC</button><button type="button" class="button small" data-notation="doremi">Do Re Mi</button>
+        </span>
+      </span>
+      <button type="button" class="button small icon fa-download" id="song-pdf" hidden>Download songbook</button>
+    </div>
     <p class="songbook-note" aria-live="polite"
       data-lang="Chords by language: ABC for songs in English, Do Re Mi for the rest."
       data-abc="Chords in ABC notation for every song: C, D, E, F, G, A, B."

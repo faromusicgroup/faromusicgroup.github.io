@@ -4,7 +4,8 @@
 // notation per default, are remembered. The songbook: every song in its language's notation, or all in one.
 // The PDF button prints the sheet (_sass/components/_sheet.scss), with chords or lyrics only (#pdf-dialog).
 (function () {
-  var controls = document.querySelector('.song-controls');
+  var controls = document.querySelector('.song-controls'); // chord controls (not on songs without chords)
+  var pdfButton = document.getElementById('song-pdf');
   var book = !!document.querySelector('.songbook');
   var toggle = document.getElementById('chords-toggle'); // only on song pages with chords
   var stepsLabel = document.getElementById('chord-steps');
@@ -86,10 +87,12 @@
   function render() {
     songs.forEach(spellChords);
     showChords(shown);
-    controls.classList.toggle('show-chords', shown);
+    if (controls) {
+      controls.classList.toggle('show-chords', shown);
+      controls.querySelectorAll('[data-notation]').forEach(function (b) { press(b, b.dataset.notation === notation); });
+    }
     if (stepsLabel) stepsLabel.textContent = steps > 0 ? '+' + steps : steps < 0 ? '−' + -steps : '0';
-    if (toggle) press(toggle, shown);
-    controls.querySelectorAll('[data-notation]').forEach(function (b) { press(b, b.dataset.notation === notation); });
+    if (toggle) toggle.textContent = shown ? toggle.dataset.hide : toggle.dataset.show; // the label says what it does
     if (notationNote) notationNote.textContent = notationNote.dataset[notation];
     if (shown && !book) layout(); // the songbook's songs are only laid out when printed
   }
@@ -169,19 +172,26 @@
     });
   }
 
-  controls.addEventListener('click', function (e) {
-    var button = e.target.closest('button');
-    if (!button) return;
-    if (button.id === 'song-pdf') return dialog && dialog.showModal ? dialog.showModal() : printSheet(null);
-    if (button === toggle) save('chords', (shown = !shown) ? 'on' : 'off');
-    else if (button.dataset.step) steps = (steps + Number(button.dataset.step)) % 12;
-    else if (button.dataset.notation) {
-      notation = button.dataset.notation;
-      if (saved) save(saved, notation);
-    }
-    render();
+  pdfButton.addEventListener('click', function () {
+    if (dialog && dialog.showModal) dialog.showModal();
+    else printSheet(null);
   });
+  pdfButton.hidden = false;
+
+  if (controls) {
+    controls.addEventListener('click', function (e) {
+      var button = e.target.closest('button');
+      if (!button) return;
+      if (button === toggle) save('chords', (shown = !shown) ? 'on' : 'off');
+      else if (button.dataset.step) steps = (steps + Number(button.dataset.step)) % 12;
+      else if (button.dataset.notation) {
+        notation = button.dataset.notation;
+        if (saved) save(saved, notation);
+      }
+      render();
+    });
+    controls.hidden = false;
+  }
   window.addEventListener('resize', function () { if (shown && !book) layout(); });
-  controls.hidden = false;
   render();
 })();

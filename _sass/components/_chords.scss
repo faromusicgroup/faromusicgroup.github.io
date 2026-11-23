@@ -1,24 +1,100 @@
 /* Lyrics & chords (song pages) */
 
-	// A compact row that wraps on phones (the theme's ul.actions stacks full-width buttons there).
+	// "Lyrics" with the PDF button on its right, always in the same place.
+	.lyrics-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 1.5em;
+
+		h2 {
+			margin: 0 1em 0 0;
+		}
+	}
+
+	#song-pdf[hidden] {
+		display: none; // theme buttons are inline-block, which would override `hidden`
+	}
+
+	// Show / Hide chords and, on their own line while chords show, Transpose and Notation.
+	// The songbook reuses the groups: Notation and Download songbook.
 	.song-controls {
-		list-style: none;
-		padding-left: 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1em 2.5em;
+		margin-bottom: 2em;
 
-		li {
-			display: inline-block;
-			padding: 0 1em 0.5em 0;
-		}
-
-		.chord-steps {
-			display: inline-block;
-			min-width: 2.5em;
-			text-align: center;
-		}
-
-		// Transpose and notation only make sense while chords are shown.
-		&:not(.show-chords) .chord-option {
+		&[hidden] {
 			display: none;
+		}
+	}
+
+	.chord-options {
+		display: flex;
+		flex-basis: 100%;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1em 2.5em;
+
+		.song-controls:not(.show-chords) & {
+			display: none;
+		}
+	}
+
+	.control-group {
+		display: inline-flex;
+		flex-wrap: wrap; // the label goes above its buttons when they don't fit side by side
+		align-items: center;
+		gap: 0.5em;
+		white-space: nowrap;
+	}
+
+	.control-label {
+		margin-right: 0.5em;
+		color: _palette(accent1);
+		font-size: 0.8em;
+	}
+
+	.chord-steps {
+		display: inline-block;
+		min-width: 2em;
+		text-align: center;
+	}
+
+	// − and + drawn larger than the small buttons' lettering, at the same button height (0.6em × 3.5em).
+	.button.small[data-step] {
+		height: (0.6em * 3.5 / 0.9);
+		padding: 0 0.85em;
+		font-size: 0.9em;
+		letter-spacing: 0;
+		line-height: (0.6em * 3.45 / 0.9);
+	}
+
+	// One choice out of two or three as a single pill: the selected part is filled (.special).
+	.segmented {
+		display: inline-flex;
+		border-radius: _size(border-radius);
+		box-shadow: inset 0 0 0 (_size(border-width) * 2) _palette(fg);
+
+		.button {
+			border-radius: 0;
+			box-shadow: none !important;
+
+			&:first-child {
+				border-radius: _size(border-radius) 0 0 _size(border-radius);
+			}
+
+			&:last-child {
+				border-radius: 0 _size(border-radius) _size(border-radius) 0;
+			}
+		}
+
+		@include breakpoint(xsmall) {
+			.button {
+				padding: 0 0.9em;
+				letter-spacing: 0.15em;
+			}
 		}
 	}
 

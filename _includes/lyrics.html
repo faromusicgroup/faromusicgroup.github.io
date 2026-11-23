@@ -1,20 +1,27 @@
-<h2>Lyrics</h2>
-<ul class="song-controls" hidden>
-  {% if page.lyrics contains '[' %}
-  <li><button type="button" class="button small" id="chords-toggle" aria-pressed="false">Chords</button></li>
-  <li class="chord-option">
-    <button type="button" class="button small" data-step="-1" aria-label="Transpose down">&#9660;</button>
-    <span class="chord-steps" id="chord-steps" aria-live="polite">0</span>
-    <button type="button" class="button small" data-step="1" aria-label="Transpose up">&#9650;</button>
-  </li>
-  <li class="chord-option">
-    <button type="button" class="button small" data-notation="abc">ABC</button>
-    <button type="button" class="button small" data-notation="doremi">Do Re Mi</button>
-  </li>
-  {% endif %}
-  <li><button type="button" class="button small" id="song-pdf">PDF</button></li>
-</ul>
-{% if page.lyrics contains '[' %}{% include pdf-dialog.html title="Download PDF" note="Chords print in the key and notation chosen on the page." songbook=true %}{% endif %}
+<div class="lyrics-header">
+  <h2>Lyrics</h2>
+  <button type="button" class="button small icon fa-download" id="song-pdf" hidden>PDF</button>
+</div>
+{% if page.lyrics contains '[' %}
+<div class="song-controls" hidden>
+  <button type="button" class="button small" id="chords-toggle" data-show="Show chords" data-hide="Hide chords">Show chords</button>
+  <div class="chord-options">
+    <span class="control-group">
+      <span class="control-label">Transpose</span>
+      <button type="button" class="button small" data-step="-1" aria-label="Transpose down">&minus;</button>
+      <span class="chord-steps" id="chord-steps" aria-live="polite">0</span>
+      <button type="button" class="button small" data-step="1" aria-label="Transpose up">+</button>
+    </span>
+    <span class="control-group">
+      <span class="control-label">Notation</span>
+      <span class="segmented" role="group" aria-label="Notation">
+        <button type="button" class="button small" data-notation="abc">ABC</button><button type="button" class="button small" data-notation="doremi">Do Re Mi</button>
+      </span>
+    </span>
+  </div>
+</div>
+{% include pdf-dialog.html title="Download PDF" note="Chords print in the key and notation chosen on the page." songbook=true %}
+{% endif %}
 {% include lyrics-text.html lyrics=page.lyrics lang=page.lang %}
 {% if page.credit %}<p class="song-credit">{{ page.credit }}</p>{% endif %}
 <script src="{{ site.baseurl }}/assets/js/qrcode-generator-2.0.4.js"></script>
